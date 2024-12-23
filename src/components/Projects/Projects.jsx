@@ -1,0 +1,19 @@
+import React from 'react'
+
+const Projects = () => {
+  return (
+    <div id='projects' className='bg-gray-800 text-white h-screen mt-[4.3rem]'>
+    <div className='w-1/2'>
+<h1>Hello! I'm Nikhil</h1>
+<p>Front End Developer</p>
+<p>"Hi, I'm Nikhil, a passionate Front-End Developer focused on creating beautiful and user-friendly web experiences. I specialize in building responsive, interactive websites that are both functional and visually appealing."
+</p>
+    </div>
+    <div>
+
+    </div>
+</div>
+  )
+}
+
+export default Projects
