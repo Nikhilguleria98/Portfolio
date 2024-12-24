@@ -28,7 +28,7 @@ function Navbar() {
   return (
     <>
       <nav className="fixed top-0 z-50 border-b">
-        <div className="flex-wrap md:justify-between justify-between backdrop-blur-lg px-16 py-6 h-fit w-screen items-center bg-zinc-900 text-white flex opacity-95">
+        <div className=" md:justify-between justify-between   backdrop-blur-lg px-4 md:px-16 py-6 h-fit w-screen items-center bg-zinc-900 text-white flex opacity-95">
           <div className="">Nikhil Guleria</div>
           <div>
             <ul className="hidden md:flex gap-10">
@@ -60,7 +60,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="bg-gray-800 text-white p-4 flex md:hidden h-full flex-col w-1/2 absolute right-0 top-0 z-50"
+            className="bg-gray-800 text-white p-4 px-10 flex md:hidden h-full flex-col w-2/4 absolute right-0 top-0 z-50"
             initial={{ clipPath: "circle(0% at 100% 0%)" }}
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}

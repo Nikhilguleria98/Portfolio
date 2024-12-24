@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const Hero = ({ isImageRounded = false, isHover = true }) => {
-  // State to track mouse position for the 3D effect
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Track the mouse movement on the image container
+  // Track mouse movement on the image itself
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
@@ -13,36 +13,19 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
     setMousePosition({ x, y });
   };
 
-  // Reset the mouse position when mouse leaves the container
+  const handleMouseEnter = () => {
+    setIsHovered(true); // Set hover state to true
+  };
+
   const handleMouseLeave = () => {
+    setIsHovered(false); // Set hover state to false and reset position
     setMousePosition({ x: 0, y: 0 });
-  };
-
-  // Animation variants
-  const containerVariant = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // Delay between each child animation
-      },
-    },
-  };
-
-  const itemVariant = {
-    hidden: { x: -50, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.6 } },
-  };
-
-  const rightSectionVariant = {
-    hidden: { x: 100, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.8 } },
   };
 
   return (
     <div
       id="/"
-      className="text-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 mt-32 md:mt-0"
+      className="text-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 mt-24 md:mt-0"
     >
       {/* Left Section */}
       <motion.div
@@ -50,37 +33,19 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
-        variants={containerVariant}
       >
         <motion.h1
-          className="text-3xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
-          variants={itemVariant}
+          className="text-[10vw] md:text-[5vw] font-bold mb-4 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
         >
           Hello! I'm Nikhil
         </motion.h1>
-        <motion.p
-          className="text-3xl md:text-6xl font-bold mb-4"
-          variants={itemVariant}
-        >
+        <motion.p className="text-[8vw] md:text-[4vw] font-bold mb-4">
           Front End Developer
         </motion.p>
-        <motion.p
-          className="text-sm md:text-base leading-relaxed"
-          variants={itemVariant}
-        >
+        <motion.p className="text-[3vh] md:text-[3vh] leading-relaxed">
           "Hi, I'm Nikhil, a passionate Front-End Developer focused on creating
-          beautiful and user-friendly web experiences. I specialize in building
-          responsive, interactive websites that are both functional and
-          visually appealing."
+          beautiful and user-friendly web experiences."
         </motion.p>
-        <motion.div className="flex mt-5 gap-4" variants={itemVariant}>
-          <button className="p-3 bg-gradient-to-r from-blue-700 to-indigo-400 rounded-lg hover:scale-105 duration-200">
-            Hire me
-          </button>
-          <button className="p-3 bg-gradient-to-r from-blue-600 to-indigo-400 rounded-lg hover:scale-105 duration-200">
-            Download Resume
-          </button>
-        </motion.div>
       </motion.div>
 
       {/* Right Section */}
@@ -89,38 +54,34 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
-        variants={rightSectionVariant}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
       >
         <div
-          className={`
-            relative w-full cursor-pointer max-h-[20rem] md:max-h-[27rem] md:w-96 md:h-[27rem] 
-            ${isHover ? "border-2 shadow-xl hover:shadow-cyan-800 " : ""}
-            rounded-lg overflow-hidden
-          `}
+          className={`relative w-full cursor-pointer 
+          ${isHovered ? "border-2 shadow-xl hover:shadow-cyan-800" : ""}
+          rounded-lg overflow-hidden max-w-[24rem] h-[27rem]`}
           style={{
             perspective: "1000px",
-            transformStyle: "preserve-3d",
             transition: "box-shadow 0.3s ease",
           }}
         >
           <img
-            src="/myimg.jpg"
+            src="/Image.jpeg"
             alt="Nikhil"
-            className={`
-              w-full h-full object-cover ${isHover ? "hover:scale-105" : ""}
-              ${isImageRounded ? "rounded-full" : "rounded-lg"}
-            `}
+            className={`w-full h-full object-cover ${
+              isImageRounded ? "rounded-full" : "rounded-lg"
+            }`}
             style={{
               transition: "transform 0.3s ease",
-              transform: `
-                rotateY(${mousePosition.x * 13}deg)
-                rotateX(${-mousePosition.y * 13}deg)
-                ${isHover ? "scale3d(1.05, 1.05, 1.05)" : ""}
-              `,
+              transform: `rotateY(${mousePosition.x * 25}deg) rotateX(${
+                -mousePosition.y * 25
+              }deg) scale3d(${isHovered ? 1.25 : 1}, ${
+                isHovered ? 1.25 : 1
+              }, ${isHovered ? 1.25 : 1})`,
               transformOrigin: "center center",
             }}
+            onMouseMove={handleMouseMove} // Mouse move on image itself
+            onMouseEnter={handleMouseEnter} // When hovering starts
+            onMouseLeave={handleMouseLeave} // When hovering ends
           />
         </div>
       </motion.div>
