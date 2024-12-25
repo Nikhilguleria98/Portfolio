@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 
 const Hero = ({ isImageRounded = false, isHover = true }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Track mouse movement on the image itself
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
@@ -13,19 +11,32 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
     setMousePosition({ x, y });
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true); // Set hover state to true
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 });
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false); // Set hover state to false and reset position
-    setMousePosition({ x: 0, y: 0 });
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariant = {
+    hidden: { x: -50, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.6 } },
+  };
+
+  const rightSectionVariant = {
+    hidden: { x: 100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8 } },
   };
 
   return (
     <div
       id="/"
-      className="text-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 mt-24 md:mt-0"
+      className="text-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 mt-32 md:mt-0"
     >
       {/* Left Section */}
       <motion.div
@@ -33,19 +44,37 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
+        variants={containerVariant}
       >
         <motion.h1
-          className="text-[10vw] md:text-[5vw] font-bold mb-4 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
+          className="text-[10vw] md:text-[5vw] md:text-6xl font-bold mb-4  inline-block "
+          variants={itemVariant}
         >
           Hello! I'm Nikhil
         </motion.h1>
-        <motion.p className="text-[8vw] md:text-[4vw] font-bold mb-4">
+        <motion.p
+          className="text-[8vw] md:text-[4vw] font-bold mb-4"
+          variants={itemVariant}
+        >
           Front End Developer
         </motion.p>
-        <motion.p className="text-[3vh] md:text-[3vh] leading-relaxed">
+        <motion.p
+          className="text-[2.7vh] md:text-[2.5vh] leading-relaxed"
+          variants={itemVariant}
+        >
           "Hi, I'm Nikhil, a passionate Front-End Developer focused on creating
-          beautiful and user-friendly web experiences."
+          beautiful and user-friendly web experiences. I specialize in building
+          responsive, interactive websites that are both functional and
+          visually appealing."
         </motion.p>
+        <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
+          <button className="p-3 border-2 rounded-lg hover:scale-105 duration-200">
+            Hire me
+          </button>
+          <button className="p-3 border-2 rounded-lg hover:scale-105 duration-200">
+            Download Resume
+          </button>
+        </motion.div>
       </motion.div>
 
       {/* Right Section */}
@@ -54,34 +83,34 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
+        variants={rightSectionVariant}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <div
-          className={`relative w-full cursor-pointer 
-          ${isHovered ? "border-2 shadow-xl hover:shadow-cyan-800" : ""}
-          rounded-lg overflow-hidden max-w-[24rem] h-[27rem]`}
+          className={`relative w-full cursor-pointer ${
+            isHover ? "border-2 shadow-xl hover:shadow-cyan-800" : ""
+          } rounded-lg overflow-hidden max-w-[24rem] h-[27rem]`}
           style={{
             perspective: "1000px",
             transition: "box-shadow 0.3s ease",
           }}
         >
           <img
-            src="/Image.jpeg"
+            src="/myimg.jpg"
             alt="Nikhil"
             className={`w-full h-full object-cover ${
               isImageRounded ? "rounded-full" : "rounded-lg"
             }`}
             style={{
               transition: "transform 0.3s ease",
-              transform: `rotateY(${mousePosition.x * 25}deg) rotateX(${
-                -mousePosition.y * 25
-              }deg) scale3d(${isHovered ? 1.25 : 1}, ${
-                isHovered ? 1.25 : 1
-              }, ${isHovered ? 1.25 : 1})`,
+              transform: `
+                rotateY(${mousePosition.x * 35}deg) 
+                rotateX(${-mousePosition.y * 35}deg) 
+                scale3d(${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1})
+              `,
               transformOrigin: "center center",
             }}
-            onMouseMove={handleMouseMove} // Mouse move on image itself
-            onMouseEnter={handleMouseEnter} // When hovering starts
-            onMouseLeave={handleMouseLeave} // When hovering ends
           />
         </div>
       </motion.div>
