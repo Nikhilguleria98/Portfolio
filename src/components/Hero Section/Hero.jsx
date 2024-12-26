@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import "../../index.css";
+
 
 const Hero = ({ isImageRounded = false, isHover = true }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -36,9 +38,54 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
   return (
     <div
       id="/"
-      className="text-white min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 mt-32 md:mt-0"
+      className="text-white min-h-screen bg-zinc-900 flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem]"
+      style={{
+        // backgroundColor: "#060717",
+        marginTop: "-4rem", // Adjust this based on the Navbar height
+        // paddingTop: "4rem", // Match the height of the Navbar
+      }}
     >
-      {/* Left Section */}
+
+
+      {/*Left  Section */}
+      <motion.div
+  className="md:w-1/2 flex justify-center items-center md:mt-20"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.2 }}
+  variants={rightSectionVariant}
+>
+  <div
+    className={`relative w-full cursor-pointer ${
+      isHover ? " " : ""
+    } rounded-lg overflow-hidden max-w-[28rem] md:h-[28rem]`}
+    style={{
+      perspective: "1000px",
+      transition: "box-shadow 0.3s ease",
+    }}
+    onMouseMove={handleMouseMove}
+    onMouseLeave={handleMouseLeave}
+  >
+    <img
+      src="/developer.webp"
+      alt="Nikhil"
+      className={`w-full h-full object-cover ${
+        isImageRounded ? "rounded-full" : "rounded-lg"
+      }`}
+      style={{
+        transition: "transform 0.3s ease",
+        transform: `
+          rotateY(${mousePosition.x * 35}deg) 
+          rotateX(${-mousePosition.y * 35}deg) 
+          scale3d(${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1})
+        `,
+        transformOrigin: "center center",
+      }}
+    />
+  </div>
+</motion.div>
+
+      {/* Right  Section */}
       <motion.div
         className="md:w-1/2 text-center md:text-left mb-6 md:mb-0 md:mt-8"
         initial="hidden"
@@ -47,19 +94,19 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         variants={containerVariant}
       >
         <motion.h1
-          className="text-[10vw] md:text-[5vw] md:text-6xl font-bold mb-4  inline-block "
+          className="text-[8vw] md:text-[4vw] md:text-6xl font-bold   inline-block "
           variants={itemVariant}
         >
           Hello! I'm Nikhil
         </motion.h1>
         <motion.p
-          className="text-[8vw] md:text-[4vw] font-bold mb-4"
+          className="text-[8vw] md:text-[4vw] font-bold "
           variants={itemVariant}
         >
           Front End Developer
         </motion.p>
         <motion.p
-          className="text-[2.7vh] md:text-[2.5vh] leading-relaxed"
+          className="text-[2.7vh] md:text-[2.5vh] leading-relaxed p-4 md:p-0"
           variants={itemVariant}
         >
           "Hi, I'm Nikhil, a passionate Front-End Developer focused on creating
@@ -77,43 +124,35 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         </motion.div>
       </motion.div>
 
-      {/* Right Section */}
-      <motion.div
-        className="md:w-1/2 flex justify-center items-center md:mt-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={rightSectionVariant}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div
-          className={`relative w-full cursor-pointer ${
-            isHover ? "border-2 shadow-xl hover:shadow-cyan-800" : ""
-          } rounded-lg overflow-hidden max-w-[24rem] h-[27rem]`}
-          style={{
-            perspective: "1000px",
-            transition: "box-shadow 0.3s ease",
-          }}
-        >
-          <img
-            src="/myimg.jpg"
-            alt="Nikhil"
-            className={`w-full h-full object-cover ${
-              isImageRounded ? "rounded-full" : "rounded-lg"
-            }`}
-            style={{
-              transition: "transform 0.3s ease",
-              transform: `
-                rotateY(${mousePosition.x * 35}deg) 
-                rotateX(${-mousePosition.y * 35}deg) 
-                scale3d(${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1})
-              `,
-              transformOrigin: "center center",
-            }}
-          />
-        </div>
-      </motion.div>
+
+      <div className="relative">
+  <div className="h-36 w-36 flex justify-center items-center rounded-full relative">
+    <div className="h-20 w-20 border rounded-full flex justify-center items-center bg-white text-black font-bold hover:bg-black hover:text-white cursor-pointer duration-200">
+      Hire Me
+    </div>
+    <svg
+      className="absolute w-full h-full animate-spin-slow cursor-pointer pointer-events-none"
+      viewBox="0 0 150 150"
+    >
+      <defs>
+        <path
+          id="circlePath"
+          d="M 75, 75 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+        />
+      </defs>
+      <text fill="white" fontSize="26" fontWeight="bold">
+        <textPath href="#circlePath" textAnchor="middle" startOffset="50%">
+          Web Developer
+        </textPath>
+      </text>
+    </svg>
+  </div>
+</div>
+
+
+
+
+
     </div>
   );
 };
