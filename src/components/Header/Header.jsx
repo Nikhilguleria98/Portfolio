@@ -68,7 +68,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="bg-gray-800 text-black p-4 px-10 flex md:hidden flex-col w-2/3 h-2/3 fixed"
+            className="bg-gray-800 text-black p-4 px-10 flex md:hidden flex-col w-2/3 h-1/2 fixed justify-center items-center"
             initial={{ clipPath: "circle(0% at 100% 0%)" }}
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
@@ -94,7 +94,7 @@ function Navbar() {
              
             </button>
             <motion.ul
-              className="flex flex-col gap-6 justify-center items-center mt-20"
+              className="flex flex-col gap-6 justify-center items-center"
               variants={menuVariants}
               initial="closed"
               animate="open"

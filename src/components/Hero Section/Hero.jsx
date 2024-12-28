@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
+import StarBorder from "../../StarBorder";
 
 
 const Hero = ({ isImageRounded = false, isHover = true }) => {
@@ -114,19 +115,45 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
           responsive, interactive websites that are both functional and
           visually appealing."
         </motion.p>
-        <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
-          <button className="p-3 border-2 rounded-lg hover:scale-105 duration-200">
-            Hire me
-          </button>
-          <button className="p-3 border-2 rounded-lg hover:scale-105 duration-200">
-            Download Resume
-          </button>
-        </motion.div>
+
+        
+      {/* <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
+  <button className="relative md:hidden block p-3 border-2 rounded-lg overflow-hidden group">
+    <span className="relative z-10 text-white group-hover:text-black transition duration-300">Hire me</span>
+    <span className="absolute inset-0 bg-blue-500 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
+  </button>
+  <button className="relative p-3 border-2 rounded-lg overflow-hidden group">
+    <span className="relative z-10 text-white group-hover:text-black transition duration-300">Download Resume</span>
+    <span className="absolute inset-0 bg-blue-500 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
+  </button>
+</motion.div> */}
+
+
+<motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
+<StarBorder
+  as="button"
+  className="custom-class md:hidden block "
+  color="cyan"
+  speed="5s"
+>
+  Hire me
+</StarBorder>
+<StarBorder
+  as="button"
+  className="custom-class "
+  color="cyan"
+  speed="5s" 
+>
+  Download Resume
+</StarBorder>
+</motion.div>
+
       </motion.div>
 
 
-      <div className="relative">
-  <div className="h-36 w-36 flex justify-center items-center rounded-full relative">
+
+      <div className="absolute bottom-8 right-8 md:fixed">
+  <div className="h-36 w-36 hidden md:flex justify-center items-center rounded-full relative">
     <div className="h-20 w-20 border rounded-full flex justify-center items-center bg-white text-black font-bold hover:bg-black hover:text-white cursor-pointer duration-200">
       Hire Me
     </div>

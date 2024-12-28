@@ -8,15 +8,20 @@ import Contact from "./components/Contact/Contact";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/#about" element={<About />} />
-        <Route path="/#projects" element={<Projects />} />
-        <Route path="/#contact" element={<Contact />} />
-      </Routes>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Header />
+    //   <Routes>
+    //     <Route path="/" element={<Hero />} />
+    //     <Route path="/#about" element={<About />} />
+    //     <Route path="/#projects" element={<Projects />} />
+    //     <Route path="/#contact" element={<Contact />} />
+    //   </Routes>
+    // </BrowserRouter>
+ <>
+    <Header />
+    <Hero />
+    <About />
+ </>
   );
 };
 
