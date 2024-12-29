@@ -39,7 +39,7 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
   return (
     <div
       id="/"
-      className="text-white min-h-screen bg-zinc-900 flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem]"
+      className="text-white min-h-screen bg-zinc-900 flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden"
       style={{
         // backgroundColor: "#060717",
         marginTop: "-4rem", // Adjust this based on the Navbar height
@@ -117,19 +117,19 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         </motion.p>
 
         
-      {/* <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
+      <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
   <button className="relative md:hidden block p-3 border-2 rounded-lg overflow-hidden group">
     <span className="relative z-10 text-white group-hover:text-black transition duration-300">Hire me</span>
-    <span className="absolute inset-0 bg-blue-500 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
+    <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
   </button>
   <button className="relative p-3 border-2 rounded-lg overflow-hidden group">
     <span className="relative z-10 text-white group-hover:text-black transition duration-300">Download Resume</span>
-    <span className="absolute inset-0 bg-blue-500 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
+    <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
   </button>
-</motion.div> */}
+</motion.div>
 
 
-<motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
+{/* <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
 <StarBorder
   as="button"
   className="custom-class md:hidden block "
@@ -146,7 +146,7 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
 >
   Download Resume
 </StarBorder>
-</motion.div>
+</motion.div> */}
 
       </motion.div>
 
