@@ -5,6 +5,7 @@ import Hero from "./components/Hero Section/Hero";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
+import ContactForm from "./components/Contact/Contact";
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
     <Header />
     <Hero />
     <About />
-    <Projects />
+    <ContactForm />
  </>
   );
 };
