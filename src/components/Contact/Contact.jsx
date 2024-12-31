@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { SiGmail } from "react-icons/si";
 import { CiLocationOn } from "react-icons/ci";
 import { FaPhoneAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     from_name: "",
     from_email: "",
-   
     message: "",
   });
 
@@ -18,25 +19,25 @@ const Contact = () => {
     message: "",
   });
 
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Animation triggers every time the section comes into view
+    threshold: 0.2,
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => {
-      const updatedData = { ...prevData, [name]: value };
-      return updatedData;
-    });
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const validateForm = () => {
     let isValid = true;
-    let formErrors = {};
+    const formErrors = {};
 
-    // Validate name
     if (!formData.from_name) {
       formErrors.from_name = "Name is required";
       isValid = false;
     }
 
-    // Validate email
     if (!formData.from_email) {
       formErrors.from_email = "Email is required";
       isValid = false;
@@ -45,8 +46,6 @@ const Contact = () => {
       isValid = false;
     }
 
- 
-    // Validate message
     if (!formData.message) {
       formErrors.message = "Message is required";
       isValid = false;
@@ -62,23 +61,19 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return; // Don't submit if validation fails
-    }
+    if (!validateForm()) return;
 
-    // EmailJS credentials (ensure these are correct and the service is set up properly)
-    const serviceId = "service_25igr0i"; // Your service ID
-    const templateId = "template_og3i49g"; // Your template ID
-    const publicKey = "gLbkWJZNFXJ64Os2K"; // Your public key
+    const serviceId = "service_25igr0i";
+    const templateId = "template_og3i49g";
+    const publicKey = "gLbkWJZNFXJ64Os2K";
 
-    // Send the form data to EmailJS
     emailjs
       .send(serviceId, templateId, formData, publicKey)
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         alert("Form submitted successfully!");
-        setFormData({ from_name: "", from_email: "", from_phone: "", message: "" });
-        setErrors({}); // Clear errors after submission
+        setFormData({ from_name: "", from_email: "", message: "" });
+        setErrors({});
       })
       .catch((error) => {
         console.error("FAILED...", error);
@@ -86,121 +81,132 @@ const Contact = () => {
       });
   };
 
+  // Animation Variants
+  const parentVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 10,
+      },
+    },
+  };
+
   return (
-    <>
-      <div className='min-h-screen bg-zinc-800 text-white flex'>
-        <div className='w-1/2'>
-          <h1 className='md:text-[5vw]'>Let's Work <br /> Together</h1>
-          <div className='flex flex-col justify-center '>
-            <div className='flex items-center gap-2'>
-              <SiGmail />
+    <motion.div
+      className="min-h-screen bg-zinc-800 text-white flex flex-col md:flex-row items-center justify-center pt-20"
+      ref={ref}
+      variants={parentVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+    >
+      {/* Contact Information */}
+   
+          <motion.div className='w-full md:w-1/2 flex flex-col items-center ' variants={parentVariants}>
+        <motion.div className='flex flex-col gap-3'>
+          <motion.h1 variants={childVariants} className='text-[8vh] md:text-[5vw] font-bold'>Let's Work <br /> <span  variants={childVariants} className='text-teal-400'>Together</span></motion.h1>
+          <motion.div className='flex flex-col justify-center '    variants={childVariants}>
+            <motion.div className='flex items-center gap-2'>
+              <SiGmail className='text-red-600'/>
               <p>Mail</p>
-            </div>
+            </motion.div>
             <p className='px-6'>nikhilbatiyal3891@gmail.com</p>
-          </div>
-          <div className='flex flex-col justify-center '>
+          </motion.div>
+          <motion.div className='flex flex-col justify-center '  variants={childVariants}>
             <div className='flex items-center gap-2'>
-              <CiLocationOn />
+              <CiLocationOn className='text-blue-600'/>
               <p>Address</p>
             </div>
             <p className='px-6'>Chandigarh</p>
-          </div>
-          <div className='flex flex-col justify-center '>
+          </motion.div>
+          <motion.div className='flex flex-col justify-center '  variants={childVariants}>
             <div className='flex items-center gap-2'>
-              <FaPhoneAlt />
+              <FaPhoneAlt className='text-green-700'/>
               <p>Phone</p>
             </div>
             <p className='px-6'>+91 7807569493</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+        </motion.div>
 
-
-       <div className="flex  w-1/2">
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-md  shadow-lg rounded-lg p-6"
+      {/* Contact Form */}
+      <motion.div
+        className="flex flex-col items-center w-full md:w-1/2"
+        variants={parentVariants}
       >
+        <form onSubmit={handleSubmit} className="w-full max-w-md p-6">
+          <motion.div className="mb-4" variants={childVariants}>
+            <input
+              type="text"
+              id="from_name"
+              name="from_name"
+              value={formData.from_name}
+              onChange={handleChange}
+              className="mt-1 block w-full p-2 text-zinc-700 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Name"
+              required
+            />
+            {errors.from_name && (
+              <p className="text-red-500 text-xs">{errors.from_name}</p>
+            )}
+          </motion.div>
 
-        <div className="mb-4">
-          {/* <label htmlFor="from_name" className="block text-sm font-medium text-gray-700">
-            Name
-          </label> */}
-          <input
-            type="text"
-            id="from_name"
-            name="from_name"
-            value={formData.from_name}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Name"
-            required
-          />
-          {errors.from_name && <p className="text-red-500 text-xs">{errors.from_name}</p>}
-        </div>
+          <motion.div className="mb-4" variants={childVariants}>
+            <input
+              type="email"
+              id="from_email"
+              name="from_email"
+              value={formData.from_email}
+              onChange={handleChange}
+              className="mt-1 block w-full p-2 border text-zinc-700 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Email"
+              required
+            />
+            {errors.from_email && (
+              <p className="text-red-500 text-xs">{errors.from_email}</p>
+            )}
+          </motion.div>
 
-        <div className="mb-4">
-          {/* <label htmlFor="from_email" className="block text-sm font-medium text-gray-700">
-            Email
-          </label> */}
-          <input
-            type="email"
-            id="from_email"
-            name="from_email"
-            value={formData.from_email}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Email"
-            required
-          />
-          {errors.from_email && <p className="text-red-500 text-xs">{errors.from_email}</p>}
-        </div>
+          <motion.div className="mb-4" variants={childVariants}>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="mt-1 block w-full p-2 border text-zinc-700 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Message"
+              rows="4"
+              required
+            ></textarea>
+            {errors.message && (
+              <p className="text-red-500 text-xs">{errors.message}</p>
+            )}
+          </motion.div>
 
-        {/* <div className="mb-4">
-          <label htmlFor="from_phone" className="block text-sm font-medium text-gray-700">
-            Phone Number
-          </label>
-          <input
-            type="text"
-            id="from_phone"
-            name="from_phone"
-            value={formData.from_phone}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Your Phone Number"
-            required
-          />
-          {errors.from_phone && <p className="text-red-500 text-xs">{errors.from_phone}</p>}
-        </div> */}
+          <motion.button
+            type="submit"
+            className="w-full bg-teal-400 text-white py-2 px-4 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:bg-teal-400 focus:ring-offset-2"
+            variants={childVariants}
+          >
+            Submit
+          </motion.button>
+        </form>
+      </motion.div>
+    </motion.div>
+  );
+};
 
-        <div className="mb-4">
-          {/* <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-            Message
-          </label> */}
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="mt-1 block w-full p-2 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Message"
-            rows="4"
-            required
-          ></textarea>
-          {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
-      </div>
-
-    </>
-  )
-}
-
-export default Contact
+export default Contact;
