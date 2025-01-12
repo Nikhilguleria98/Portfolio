@@ -107,7 +107,7 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-zinc-800 text-white flex flex-col md:flex-row items-center justify-center pt-20"
+      className="min-h-screen bg-zinc-950 text-white flex flex-col md:flex-row items-center justify-center pt-20"
       ref={ref}
       variants={parentVariants}
       initial="hidden"

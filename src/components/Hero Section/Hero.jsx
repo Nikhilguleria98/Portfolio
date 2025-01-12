@@ -95,13 +95,13 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         variants={containerVariant}
       >
         <motion.h1
-          className="text-[8vw] md:text-[4vw] md:text-6xl font-bold   inline-block "
+          className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold   inline-block "
           variants={itemVariant}
         >
           Hello! I'm Nikhil
         </motion.h1>
         <motion.p
-          className="text-[8vw] md:text-[4vw] font-bold "
+          className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold "
           variants={itemVariant}
         >
           Front End Developer
@@ -152,7 +152,7 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
 
 
 
-      <div className="absolute bottom-8 right-8 md:fixed">
+      <div className="absolute bottom-8 right-8 md:fixed z-50">
   <div className="h-36 w-36 hidden md:flex justify-center items-center rounded-full relative">
     <div className="h-20 w-20 border rounded-full flex justify-center items-center bg-white text-black font-bold hover:bg-black hover:text-white cursor-pointer duration-200">
       Hire Me
