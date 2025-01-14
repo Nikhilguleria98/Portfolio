@@ -50,12 +50,12 @@ const Projects = () => {
         </div>
 
         {/* Project Cards */}
-        <div className="w-full px-[10vw] sm:px-4  max-w-screen-lg mt-10 mb-20 ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className=" px-[6vw] sm:px-4  max-w- mt-10 mb-20 ">
+          <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6">
             {data.map((currElem) => (
               <div
                 key={currElem.id}
-                className="relative bg-zinc-700 rounded-lg shadow-lg p-4 hover:scale-95 transition-transform duration-300 group"
+                className="max-w-[350px] relative bg-zinc-700 rounded-lg shadow-lg p-4 hover:scale-95 transition-transform duration-300 group"
               >
                 {/* Image */}
                 <div className="relative">
