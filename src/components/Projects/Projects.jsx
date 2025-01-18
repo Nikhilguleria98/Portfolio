@@ -9,11 +9,20 @@ const Projects = () => {
       id: 1,
       name: "Kreativan Technologies",
       img: "./kreativan.png",
-      desciption: "nothing this time",
+      desciption: "A sleek and modern website designed for a digital agency, built with NextJs and TailwindCSS.",
+      tags: [
+        "MERN",
+        "NodeJs",
+        "ReactJs",
+        "Payment-Integration",
+        "SASS",
+        "Admin Panel",
+        "Context API",
+      ],
     },
     {
       id: 2,
-      name: "Kreativan Technologies",
+      name: "Food Website",
       img: "./foodweb.png",
       desciption: "nothing this time",
       link: "foodwebsite-zeta.vercel.app",
@@ -21,13 +30,13 @@ const Projects = () => {
     },
     {
       id: 3,
-      name: "Kreativan Technologies",
+      name: "Hotel Website",
       img: "/hotel.png",
       desciption: "nothing this time",
     },
     {
       id: 4,
-      name: "Kreativan Technologies",
+      name: "Country API website",
       img: "./country.png",
       desciption: "nothing this time",
     },
@@ -55,14 +64,14 @@ const Projects = () => {
             {data.map((currElem) => (
               <div
                 key={currElem.id}
-                className="max-w-[350px] relative bg-zinc-700 rounded-lg shadow-lg p-4 hover:scale-95 transition-transform duration-300 group"
+                className="max-w-[350px] relative bg-zinc-700 rounded-lg shadow-lg p-4 hover:scale-95 transition-transform duration-300 "
               >
                 {/* Image */}
-                <div className="relative">
+                <div className="relative  group">
                   <img
                     src={currElem.img}
                     alt={currElem.name}
-                    className="w-full h-full object-contain rounded-md mb-4"
+                    className="w-full h-full object-contain rounded-md mb-4 "
                   />
 
                   {/* Overlay with Icons */}
@@ -87,8 +96,29 @@ const Projects = () => {
                 </div>
 
                 {/* Text */}
-                <p className="text-lg font-semibold">{currElem.name}</p>
-                <p className="text-sm text-gray-300">{currElem.desciption}</p>
+         <div>
+         <div>
+           <p className="text-lg font-semibold">{currElem.name}</p>
+           <p className="text-sm text-gray-300">{currElem.desciption}</p>
+           </div>
+
+
+           <div className="flex flex-wrap gap-2">
+  {Array.isArray(currElem.tags) && currElem.tags.length > 0 ? (
+    currElem.tags.map((tag, index) => (
+      <span
+        key={index}
+        className="text-xs bg-teal-400 text-gray-700 py-1 px-2 rounded-lg"
+      >
+        {tag}
+      </span>
+    ))
+  ) : (
+    <span>No tags available</span> // Optional fallback message
+  )}
+</div>
+
+         </div>
               </div>
             ))}
           </div>
