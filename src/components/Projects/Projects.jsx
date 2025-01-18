@@ -8,7 +8,7 @@ const Projects = () => {
     {
       id: 1,
       name: "Kreativan Technologies",
-      img: "./manimg.png",
+      img: "./kreativan.png",
       desciption: "nothing this time",
     },
     {
@@ -16,27 +16,27 @@ const Projects = () => {
       name: "Kreativan Technologies",
       img: "./foodweb.png",
       desciption: "nothing this time",
-      link:"foodwebsite-zeta.vercel.app",
-      gitLink:"https://github.com/Nikhilguleria98/Foodwebsite"
+      link: "foodwebsite-zeta.vercel.app",
+      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
     },
     {
       id: 3,
       name: "Kreativan Technologies",
-      img: "./manimg.png",
+      img: "/hotel.png",
       desciption: "nothing this time",
     },
     {
       id: 4,
       name: "Kreativan Technologies",
-      img: "./manimg.png",
+      img: "./country.png",
       desciption: "nothing this time",
     },
-    {
-      id: 5,
-      name: "Kreativan Technologies",
-      img: "./manimg.png",
-      desciption: "nothing this time",
-    },
+    // {
+    //   id: 5,
+    //   name: "Kreativan Technologies",
+    //   img: "./manimg.png",
+    //   desciption: "nothing this time",
+    // },
   ];
 
   return (
@@ -50,7 +50,7 @@ const Projects = () => {
         </div>
 
         {/* Project Cards */}
-        <div className=" px-[6vw] sm:px-4  max-w- mt-10 mb-20 ">
+        <div className="px-[6vw] sm:px-4 max-w-full mt-10 mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6">
             {data.map((currElem) => (
               <div
@@ -62,20 +62,22 @@ const Projects = () => {
                   <img
                     src={currElem.img}
                     alt={currElem.name}
-                    className="w-full h-[270px] object-cover rounded-md mb-4"
+                    className="w-full h-full object-contain rounded-md mb-4"
                   />
 
                   {/* Overlay with Icons */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md">
                     <div className="flex gap-4">
                       <a
-                        href={currElem.link ? `https://${currElem.link}` : "#"} target="_main"
+                        href={currElem.link ? `https://${currElem.link}` : "#"}
+                        target="_main"
                         className="text-white bg-zinc-800 opacity-75 p-4 rounded-full hover:bg-zinc-600 hover:-translate-y-2 duration-300 transition"
                       >
                         <IoEyeSharp className="text-2xl" />
                       </a>
                       <a
-                         href={currElem.link ? `https://${currElem.gitLink}` : "#"} target="_main"
+                        href={currElem.gitLink ? currElem.gitLink : "#"}
+                        target="_main"
                         className="text-white bg-zinc-800 opacity-75 p-4 rounded-full hover:bg-zinc-600 hover:-translate-y-2 duration-300 transition"
                       >
                         <FaGithub className="text-2xl" />
