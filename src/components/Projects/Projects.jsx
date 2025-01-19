@@ -65,7 +65,7 @@ const Projects = () => {
   return (
     <>
       <section id="projects">
-      <div className="min-h-screen w-full  flex flex-col items-center text-black dark:text-white bg-teal-50 dark:bg-zinc-900">
+      <div className="min-h-screen w-full  flex flex-col items-center text-black dark:text-white bg-teal-50 dark:bg-zinc-800">
         {/* Header */}
         <div className="mt-10 px-4 sm:px-8 text-center">
           <h1 className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold">

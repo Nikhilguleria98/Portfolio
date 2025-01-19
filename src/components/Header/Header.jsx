@@ -37,7 +37,7 @@ function Navbar() {
           overflowX: "hidden", // Prevent horizontal scroll behind the navbar
         }}
       >
-        <div className="flex justify-between px-4 md:px-16 py-5 items-center  text-black dark:text-white bg-zinc-100 dark:bg-zinc-900">
+        <div className="flex justify-between px-4 md:px-16 py-5 items-center  text-black dark:text-white ">
           <div>Nikhil Guleria</div>
           <div>
             <ul className="hidden md:flex gap-10">
@@ -61,12 +61,12 @@ function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="relative w-20 h-10 bg-gray-300 dark:bg-gray-700 rounded-full flex items-center transition-all duration-300"
+            className="relative w-16 h-9  bg-gray-300 dark:bg-gray-700 rounded-full flex items-center transition-all duration-300"
             aria-label="Toggle theme"
           >
             {/* Slider Circle */}
             <motion.div
-              className="absolute w-8 h-8 bg-yellow-400 dark:bg-gray-900 rounded-full shadow-md transform"
+              className="absolute w-7 h-7 bg-yellow-400 dark:bg-gray-900 rounded-full shadow-md transform"
               layout
               initial={false}
               animate={{ x: theme === "light" ? 4 : 36 }}
