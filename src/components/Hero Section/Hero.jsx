@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
-import StarBorder from "../../StarBorder";
+import { useTheme } from "../../ThemeContext";
 
 
 const Hero = ({ isImageRounded = false, isHover = true }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const { theme } = useTheme(); 
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
@@ -39,10 +39,10 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
   return (
     <div
       id="home"
-      className="text-white min-h-screen bg-zinc-900 flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden"
+      className=" min-h-screen  flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden  text-black dark:text-white bg-zinc-100 dark:bg-zinc-900"
       style={{
         // backgroundColor: "#060717",
-        marginTop: "-4rem", // Adjust this based on the Navbar height
+        marginTop: "-5rem", // Adjust this based on the Navbar height
         // paddingTop: "4rem", // Match the height of the Navbar
       }}
     >
@@ -119,11 +119,11 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         
       <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
   <button className="relative md:hidden block p-3 border-2 rounded-lg overflow-hidden group">
-    <span className="relative z-10 text-white group-hover:text-black transition duration-300">Hire me</span>
-    <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
+    <span className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white">Hire me</span>
+    <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out "></span>
   </button>
   <button className="relative p-3 border-2 rounded-lg overflow-hidden group">
-    <span className="relative z-10 text-white group-hover:text-black transition duration-300">Download Resume</span>
+    <span className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white  ">Download Resume</span>
     <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
   </button>
 </motion.div>
@@ -153,28 +153,38 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
 
 
       <div className="absolute bottom-8 right-8 md:fixed z-50">
-  <div className="h-36 w-36 hidden md:flex justify-center items-center rounded-full relative">
-    <div className="h-20 w-20 border rounded-full flex justify-center items-center bg-white text-black font-bold hover:bg-black hover:text-white cursor-pointer duration-200">
-      Hire Me
+      <div className="h-36 w-36 hidden md:flex justify-center items-center rounded-full relative">
+        <div
+          className={`h-20 w-20 border border-black rounded-full flex justify-center items-center font-bold hover:bg-black hover:text-white cursor-pointer duration-200 ${
+            theme === "light"
+              ? "text-black bg-zinc-100" // Light mode styles
+              : "text-white bg-zinc-900" // Dark mode styles
+          }`}
+        >
+          Hire Me
+        </div>
+        <svg
+          className="absolute w-full h-full animate-spin-slow cursor-pointer pointer-events-none"
+          viewBox="0 0 150 150"
+        >
+          <defs>
+            <path
+              id="circlePath"
+              d="M 75, 75 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
+            />
+          </defs>
+          <text
+            fill={theme === "light" ? "black" : "white"} // Adjust text color based on theme
+            fontSize="26"
+            fontWeight="bold"
+          >
+            <textPath href="#circlePath" textAnchor="middle" startOffset="50%">
+              Web Developer
+            </textPath>
+          </text>
+        </svg>
+      </div>
     </div>
-    <svg
-      className="absolute w-full h-full animate-spin-slow cursor-pointer pointer-events-none"
-      viewBox="0 0 150 150"
-    >
-      <defs>
-        <path
-          id="circlePath"
-          d="M 75, 75 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
-        />
-      </defs>
-      <text fill="white" fontSize="26" fontWeight="bold">
-        <textPath href="#circlePath" textAnchor="middle" startOffset="50%">
-          Web Developer
-        </textPath>
-      </text>
-    </svg>
-  </div>
-</div>
 
 
 

@@ -6,6 +6,7 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import ContactForm from "./components/Contact/Contact";
+import { ThemeProvider } from "./ThemeContext";
 
 const App = () => {
   return (
@@ -18,14 +19,14 @@ const App = () => {
     //     <Route path="/#contact" element={<Contact />} />
     //   </Routes>
     // </BrowserRouter>
- <>
+ <ThemeProvider  >
     <Header />
     <Hero />
     <About />
     <Projects />
 
     <ContactForm />
- </>
+ </ThemeProvider>
   );
 };
 

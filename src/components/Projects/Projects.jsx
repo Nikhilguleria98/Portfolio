@@ -65,7 +65,7 @@ const Projects = () => {
   return (
     <>
       <section id="projects">
-      <div className="min-h-screen w-full bg-zinc-800 text-white flex flex-col items-center">
+      <div className="min-h-screen w-full  flex flex-col items-center text-black dark:text-white bg-teal-50 dark:bg-zinc-900">
         {/* Header */}
         <div className="mt-10 px-4 sm:px-8 text-center">
           <h1 className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold">
@@ -79,7 +79,7 @@ const Projects = () => {
             {data.map((currElem) => (
               <div
                 key={currElem.id}
-                className="max-w-[350px] relative bg-zinc-700 rounded-lg shadow-lg p-4 hover:scale-95 transition-transform duration-300 "
+                className="max-w-[350px] relative  rounded-lg shadow-lg p-4 hover:scale-95 transition-transform duration-300 text-black dark:text-white bg-zinc-200 dark:bg-zinc-700"
               >
                 {/* Image */}
                 <div className="relative  group">
@@ -114,7 +114,7 @@ const Projects = () => {
          <div>
          <div>
            <p className="text-lg font-semibold">{currElem.name}</p>
-           <p className="text-sm text-gray-300">{currElem.desciption}</p>
+           <p className="text-sm text-black dark:text-white">{currElem.desciption}</p>
            </div>
 
 

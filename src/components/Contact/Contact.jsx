@@ -109,7 +109,7 @@ const Contact = () => {
   return (
  <section id="contact">
      <motion.div
-      className="min-h-screen bg-zinc-950 text-white flex flex-col md:flex-row items-center justify-center pt-20"
+      className="min-h-screen  flex flex-col md:flex-row items-center justify-center pt-20 text-black dark:text-white bg-zinc-100 dark:bg-zinc-900"
       ref={ref}
       variants={parentVariants}
       initial="hidden"
