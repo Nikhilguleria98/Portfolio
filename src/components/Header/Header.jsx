@@ -39,10 +39,18 @@ function Navbar() {
           <div>Nikhil Guleria</div>
           <div>
             <ul className="hidden md:flex gap-10">
-              <li className="hover:text-gray-300 transition-colors">Home</li>
-              <li className="hover:text-gray-300 transition-colors">About</li>
-              <li className="hover:text-gray-300 transition-colors">Projects</li>
-              <li className="hover:text-gray-300 transition-colors">Contact</li>
+              <li className="hover:text-gray-300 transition-colors">
+                <a href="#home">Home</a>
+              </li>
+              <li className="hover:text-gray-300 transition-colors">
+                <a href="#about">About</a>
+              </li>
+              <li className="hover:text-gray-300 transition-colors">
+                <a href="#projects">Projects</a>
+              </li>
+              <li className="hover:text-gray-300 transition-colors">
+                <a href="#contact">Contact</a>
+              </li>
             </ul>
           </div>
           <div>dark/light</div>
@@ -58,7 +66,7 @@ function Navbar() {
                 style={{ display: "flex", alignItems: "center" }}
                 animate={{ rotate: isMenuOpen ? 135 : 0 }}
               >
-                {isMenuOpen ? <HiXMark className="text-xl font-bold"/> : <FaBarsStaggered />}
+                {isMenuOpen ? <HiXMark className="text-xl font-bold" /> : <FaBarsStaggered />}
               </motion.div>
             </motion.button>
           </div>
@@ -83,16 +91,7 @@ function Navbar() {
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Soft shadow for depth
               overflowX: "hidden", // Prevent horizontal scroll behind the navbar
             }}
-            
           >
-            <button
-              className="text-xl font-bold absolute right-6 top-6 hover:text-gray-400"
-              onClick={toggleMenu}
-              aria-label="Close menu"
-            >
-             
-             
-            </button>
             <motion.ul
               className="flex flex-col gap-6 justify-center items-center"
               variants={menuVariants}
@@ -106,7 +105,7 @@ function Navbar() {
                   variants={menuItemVariants}
                   className="hover:text-gray-400"
                 >
-                  {item}
+                  <a href={`#${item.toLowerCase()}`}>{item}</a>
                 </motion.li>
               ))}
             </motion.ul>

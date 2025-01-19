@@ -11,34 +11,48 @@ const Projects = () => {
       img: "./kreativan.png",
       desciption: "A sleek and modern website designed for a digital agency, built with NextJs and TailwindCSS.",
       tags: [
-        "MERN",
-        "NodeJs",
-        "ReactJs",
-        "Payment-Integration",
-        "SASS",
-        "Admin Panel",
-        "Context API",
+        "NextJs",
+        "Tailwind CSS",
+        "EmailJs"
       ],
     },
     {
       id: 2,
       name: "Food Website",
       img: "./foodweb.png",
-      desciption: "nothing this time",
+      desciption: "A visually engaging website designed for a food delivery service, highlighting fast delivery and delicious meals.",
       link: "foodwebsite-zeta.vercel.app",
       gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
+      tags: [
+        "ReactJs",
+        "Context API",
+        "Tailwind CSS",
+        "EmailJs",
+        "framer-motion"
+      ],
     },
     {
       id: 3,
       name: "Hotel Website",
       img: "/hotel.png",
-      desciption: "nothing this time",
+      desciption: "An elegant and professional website for a hotel, emphasizing comfort and luxurious experiences for travelers.",
+      tags: [
+        "ReactJs",
+        "Tailwind CSS",
+        "In progress",
+      ],
     },
     {
       id: 4,
       name: "Country API website",
       img: "./country.png",
-      desciption: "nothing this time",
+      desciption: "An interactive website to explore information about different countries, offering detailed insights and a sleek UI.",
+      tags: [
+        "Axios",
+        "Tailwind CSS",
+        "ReactJs",
+     
+      ],
     },
     // {
     //   id: 5,
@@ -50,6 +64,7 @@ const Projects = () => {
 
   return (
     <>
+      <section id="projects">
       <div className="min-h-screen w-full bg-zinc-800 text-white flex flex-col items-center">
         {/* Header */}
         <div className="mt-10 px-4 sm:px-8 text-center">
@@ -103,7 +118,7 @@ const Projects = () => {
            </div>
 
 
-           <div className="flex flex-wrap gap-2">
+           <div className="flex flex-wrap gap-2 mt-8 p-3">
   {Array.isArray(currElem.tags) && currElem.tags.length > 0 ? (
     currElem.tags.map((tag, index) => (
       <span
@@ -124,6 +139,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
+      </section>
     </>
   );
 };

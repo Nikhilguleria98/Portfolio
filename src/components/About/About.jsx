@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'; // Importing Framer Motion
 
 function AboutUs() {
   return (
-    <div className="min-h-screen w-full bg-zinc-950 text-white flex flex-col items-center justify-center p-6">
+    <div id='about' className="min-h-screen w-full bg-zinc-950 text-white flex flex-col items-center justify-center p-6">
       {/* Animated Header */}
       <motion.h1
         className="text-[6vh] sm:text-[8vh] md:text-[4vw] text-center font-bold mt-10"

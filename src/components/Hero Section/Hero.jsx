@@ -38,7 +38,7 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
 
   return (
     <div
-      id="/"
+      id="home"
       className="text-white min-h-screen bg-zinc-900 flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden"
       style={{
         // backgroundColor: "#060717",

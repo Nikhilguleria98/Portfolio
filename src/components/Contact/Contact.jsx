@@ -5,6 +5,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { section } from "framer-motion/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -106,7 +107,8 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
+ <section id="contact">
+     <motion.div
       className="min-h-screen bg-zinc-950 text-white flex flex-col md:flex-row items-center justify-center pt-20"
       ref={ref}
       variants={parentVariants}
@@ -206,6 +208,7 @@ const Contact = () => {
         </form>
       </motion.div>
     </motion.div>
+ </section>
   );
 };
 
