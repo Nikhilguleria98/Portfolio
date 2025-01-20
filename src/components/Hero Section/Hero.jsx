@@ -39,7 +39,7 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
   return (
     <div
       id="home"
-      className=" min-h-screen  flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden  text-black dark:text-white bg-rose-100 dark:bg-zinc-800"
+      className=" min-h-screen  flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden  text-black dark:text-white bg-teal-50 dark:bg-gray-800"
       style={{
         // backgroundColor: "#060717",
         marginTop: "-5rem", // Adjust this based on the Navbar height
