@@ -56,9 +56,6 @@ function Navbar() {
             </ul>
           </div>
 
-
-
-
           <button
             onClick={toggleTheme}
             className="relative w-16 h-9  bg-gray-300 dark:bg-gray-700 rounded-full flex items-center transition-all duration-300"
@@ -131,8 +128,6 @@ function Navbar() {
             </motion.div>
           </button>
 
-
-
           <div className="md:hidden">
             <motion.button
               onClick={toggleMenu}
@@ -145,7 +140,9 @@ function Navbar() {
                 style={{ display: "flex", alignItems: "center" }}
                 animate={{ rotate: isMenuOpen ? 135 : 0 }}
               >
-                {isMenuOpen ? <HiXMark className="text-xl font-bold" /> : <FaBarsStaggered />}
+                <a  onClick={toggleMenu}>
+                  {isMenuOpen ? <HiXMark className="text-xl font-bold" /> : <FaBarsStaggered />}
+                </a>
               </motion.div>
             </motion.button>
           </div>
@@ -184,7 +181,7 @@ function Navbar() {
                   variants={menuItemVariants}
                   className="hover:text-gray-400"
                 >
-                  <a href={`#${item.toLowerCase()}`}>{item}</a>
+                  <a href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)}>{item}</a>
                 </motion.li>
               ))}
             </motion.ul>

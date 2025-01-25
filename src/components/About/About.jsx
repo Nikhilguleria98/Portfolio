@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'; // Importing Framer Motion
 import Skills from '../Skill/Skill';
+import AcademicSection from '../Academic section/Academic';
 
 function AboutUs() {
   return (
@@ -80,6 +81,7 @@ function AboutUs() {
     </div>
 
       <Skills/>
+      <AcademicSection/>
    </>
   );
 }

@@ -46,6 +46,7 @@ const Projects = () => {
   const containerVariants = {
     hidden: { opacity: 1 },
     visible: {
+      opacity: 1,
       transition: {
         staggerChildren: 0.4, // Delay between cards
       },
@@ -53,42 +54,40 @@ const Projects = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8, rotate: -10, y: 50 },
+    hidden: { opacity: 1, y: 50 },
     visible: {
       opacity: 1,
-      scale: 1,
-      rotate: 0,
       y: 0,
       transition: {
         type: "spring",
         stiffness: 200,
         damping: 20,
-        duration: 0.6,
+        duration: 0.8,
       },
     },
   };
 
   const contentVariants = {
-    hidden: { opacity: 0, x: -30 },
+    hidden: { opacity: 1, y: 10 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 15,
+        stiffness: 100,
+        damping: 20,
         duration: 0.4,
       },
     },
   };
 
   const tagVariants = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -117,9 +116,9 @@ const Projects = () => {
           {/* Header */}
           <motion.div
             className="mt-10 px-4 sm:px-8 text-center"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
           >
             <h1 className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold">
               Our Creative Projects
@@ -131,7 +130,7 @@ const Projects = () => {
             {data.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="max-w-[350px] relative rounded-lg shadow-lg p-6 bg-zinc-200 dark:bg-zinc-700 hover:cursor-pointer "
+                className="max-w-[350px] relative rounded-lg shadow-lg p-6 bg-zinc-200 dark:bg-zinc-700 hover:cursor-pointer"
                 variants={cardVariants} // Each card animation
                 custom={index} // Customize delay for each card
               >
@@ -141,8 +140,8 @@ const Projects = () => {
                     src={project.img}
                     alt={project.name}
                     className="w-full h-full object-cover rounded-md mb-4"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.4 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
                   />
 
                   {/* Overlay with Icons */}
@@ -153,16 +152,16 @@ const Projects = () => {
                       <a
                         href={project.link ? `https://${project.link}` : "#"}
                         target="_main"
-                        className="text-white bg-zinc-800 p-4 rounded-full hover:bg-zinc-600 transition hover:-translate-y-2 duration-300"
+                        className="text-white bg-zinc-800 p-3 rounded-full hover:bg-zinc-600 transition-transform transform hover:scale-110 duration-300 hover:-translate-y-2 "
                       >
-                        <IoEyeSharp className="text-2xl" />
+                        <IoEyeSharp className="text-xl" />
                       </a>
                       <a
                         href={project.gitLink ? project.gitLink : "#"}
                         target="_main"
-                        className="text-white bg-zinc-800 p-4 rounded-full hover:bg-zinc-600 transition hover:-translate-y-2 duration-300"
+                        className="text-white bg-zinc-800 p-3 rounded-full hover:bg-zinc-600 transition-transform transform hover:scale-110  duration-300 hover:-translate-y-2 " 
                       >
-                        <FaGithub className="text-2xl" />
+                        <FaGithub className="text-xl" />
                       </a>
                     </div>
                   </motion.div>
@@ -189,7 +188,7 @@ const Projects = () => {
                       key={i}
                       className="text-xs bg-teal-400 text-gray-700 py-1 px-2 rounded-lg"
                       variants={tagVariants}
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.15 }}
                       transition={{ duration: 0.3 }}
                     >
                       {tag}
