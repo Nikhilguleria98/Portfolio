@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion'; // Importing Framer Motion
+import Skills from '../Skill/Skill';
 
 function AboutUs() {
   return (
-    <div id='about' className="min-h-screen w-full  flex flex-col items-center justify-center p-6 text-black dark:text-white bg-zinc-100 dark:bg-zinc-900">
+   <>
+   
+   <div id='about' className="min-h-screen w-full  flex flex-col items-center justify-center p-6 text-black dark:text-white bg-zinc-100 dark:bg-zinc-900">
       {/* Animated Header */}
       <motion.h1
         className="text-[6vh] sm:text-[8vh] md:text-[4vw] text-center font-bold mt-10"
@@ -75,6 +78,9 @@ function AboutUs() {
         </div>
       </motion.div>
     </div>
+
+      <Skills/>
+   </>
   );
 }
 

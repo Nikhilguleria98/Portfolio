@@ -7,6 +7,7 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import ContactForm from "./components/Contact/Contact";
 import { ThemeProvider } from "./ThemeContext";
+import Skills from "./components/Skill/Skill";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
     <Header />
     <Hero />
     <About />
+  
     <Projects />
 
     <ContactForm />
