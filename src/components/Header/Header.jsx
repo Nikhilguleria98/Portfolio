@@ -48,7 +48,10 @@ function Navbar() {
                 <a href="#about">About</a>
               </li>
               <li className="hover:text-gray-300 transition-colors">
-                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+              </li>
+              <li className="hover:text-gray-300 transition-colors">
+                <a href="#projects">Work</a>
               </li>
               <li className="hover:text-gray-300 transition-colors">
                 <a href="#contact">Contact</a>
@@ -152,7 +155,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="bg-gray-800 text-black p-4 px-10 flex md:hidden flex-col w-2/3 h-1/2 fixed justify-center items-center"
+            className=" text-black dark:  text-lg p-4 px-10 flex md:hidden flex-col w-2/3 h-1/2 fixed justify-center items-center"
             initial={{ clipPath: "circle(0% at 100% 0%)" }}
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
@@ -163,8 +166,8 @@ function Navbar() {
               transform: "translate(-50%, -50%)", // Center the menu in the viewport
               zIndex: 60,
               backdropFilter: "blur(10px)", // Adds the glass effect
-              backgroundColor: "rgba(255, 255, 255, 0.7)", // Transparent glass background
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Soft shadow for depth
+              backgroundColor: "rgba(255, 255, 255, 0.5)", // Transparent glass background
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.6)", // Soft shadow for depth
               overflowX: "hidden", // Prevent horizontal scroll behind the navbar
             }}
           >
@@ -175,7 +178,7 @@ function Navbar() {
               animate="open"
               exit="closed"
             >
-              {["Home", "About", "Projects", "Contact"].map((item, index) => (
+              {["Home", "About","Skills", "Work", "Contact"].map((item, index) => (
                 <motion.li
                   key={index}
                   variants={menuItemVariants}

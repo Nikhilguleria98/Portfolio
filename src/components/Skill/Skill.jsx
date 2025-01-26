@@ -22,13 +22,14 @@ const Skills = () => {
 
   return (
     <motion.section
+    id="skills"
       className=" bg-zinc-100 dark:bg-zinc-800 py-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
       <div className="max-w-6xl mx-auto px-6 text-center  text-white">
-        <h2 className="text-5xl font-bold mb-8 dark:text-white text-black">My Skills</h2>
+        <h2 className="text-[6vh] sm:text-[8vh] md:text-[4vw]l font-bold mb-8 dark:text-white text-black">My Skills</h2>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 p-5"
           initial={{ opacity: 0 }}
