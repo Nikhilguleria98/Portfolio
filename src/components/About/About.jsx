@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'; // Importing Framer Motion
 import Skills from '../Skill/Skill';
 import AcademicSection from '../Academic section/Academic';
 
-function AboutUs() {
+function About() {
   return (
    <>
    
@@ -86,4 +86,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default About;

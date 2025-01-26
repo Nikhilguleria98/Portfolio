@@ -40,20 +40,17 @@ function Navbar() {
         <div className="flex justify-between px-4 md:px-16 py-5 items-center  text-black dark:text-white ">
           <div>Nikhil Guleria</div>
           <div>
-            <ul className="hidden md:flex gap-10">
-              <li className="hover:text-gray-300 transition-colors">
+            <ul className="hidden md:flex gap-10 font-semibold">
+              <li className="hover:text-teal-500 duration-300  transition-colors">
                 <a href="#home">Home</a>
               </li>
-              <li className="hover:text-gray-300 transition-colors">
+              <li className="hover:text-teal-500 duration-300 transition-colors">
                 <a href="#about">About</a>
               </li>
-              <li className="hover:text-gray-300 transition-colors">
-                <a href="#skills">Skills</a>
+              <li className="hover:text-teal-500 duration-300 transition-colors">
+                <a href="#projects">Projects</a>
               </li>
-              <li className="hover:text-gray-300 transition-colors">
-                <a href="#projects">Work</a>
-              </li>
-              <li className="hover:text-gray-300 transition-colors">
+              <li className="hover:text-teal-500 duration-300 transition-colors">
                 <a href="#contact">Contact</a>
               </li>
             </ul>
@@ -61,12 +58,12 @@ function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="relative w-16 h-9  bg-gray-300 dark:bg-gray-700 rounded-full flex items-center transition-all duration-300"
+            className="relative w-16 h-9 border border-teal-500  bg-gray-300 dark:bg-gray-700 rounded-full flex items-center transition-all duration-300"
             aria-label="Toggle theme"
           >
             {/* Slider Circle */}
             <motion.div
-              className="absolute w-7 h-7 bg-yellow-400 dark:bg-gray-900 rounded-full shadow-md transform"
+              className="absolute w-6 h-6 bg-yellow-400 dark:bg-gray-900 rounded-full shadow-md transform"
               layout
               initial={false}
               animate={{ x: theme === "light" ? 4 : 36 }}
@@ -155,7 +152,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className=" text-black dark:  text-lg p-4 px-10 flex md:hidden flex-col w-2/3 h-1/2 fixed justify-center items-center"
+            className="bg-gray-800 text-black p-4 px-10 flex md:hidden flex-col w-2/3 h-1/2 fixed justify-center items-center"
             initial={{ clipPath: "circle(0% at 100% 0%)" }}
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
@@ -166,8 +163,8 @@ function Navbar() {
               transform: "translate(-50%, -50%)", // Center the menu in the viewport
               zIndex: 60,
               backdropFilter: "blur(10px)", // Adds the glass effect
-              backgroundColor: "rgba(255, 255, 255, 0.5)", // Transparent glass background
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.6)", // Soft shadow for depth
+              backgroundColor: "rgba(255, 255, 255, 0.7)", // Transparent glass background
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Soft shadow for depth
               overflowX: "hidden", // Prevent horizontal scroll behind the navbar
             }}
           >
@@ -178,11 +175,11 @@ function Navbar() {
               animate="open"
               exit="closed"
             >
-              {["Home", "About","Skills", "Work", "Contact"].map((item, index) => (
+              {["Home", "About", "Projects", "Contact"].map((item, index) => (
                 <motion.li
                   key={index}
                   variants={menuItemVariants}
-                  className="hover:text-gray-400"
+                  className="hover:text-teal-500 duration-300"
                 >
                   <a href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)}>{item}</a>
                 </motion.li>

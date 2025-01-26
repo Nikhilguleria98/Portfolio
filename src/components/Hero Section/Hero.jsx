@@ -4,7 +4,7 @@ import "../../index.css";
 import { useTheme } from "../../ThemeContext";
 
 
-const Hero = ({ isImageRounded = false, isHover = true }) => {
+const Home = ({ isImageRounded = false, isHover = true }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { theme } = useTheme(); 
   const handleMouseMove = (e) => {
@@ -119,11 +119,11 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
         
       <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
   <button className="relative md:hidden block p-3 border-2 rounded-lg overflow-hidden group">
-    <span className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white">Hire me</span>
+    <a href="#contact" className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white">Hire me</a>
     <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out "></span>
   </button>
   <button className="relative p-3 border-2 rounded-lg overflow-hidden group">
-    <span className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white  ">Download Resume</span>
+    <a href="/Nikhil's Resume.pdf" download={"Nikhil's Resume.pdf"} className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white  ">Download Resume</a>
     <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
   </button>
 </motion.div>
@@ -155,13 +155,13 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
       <div className="absolute bottom-8 right-8 md:fixed z-50">
       <div className="h-36 w-36 hidden md:flex justify-center items-center rounded-full relative">
         <div
-          className={`h-20 w-20 border border-black rounded-full flex justify-center items-center font-bold hover:bg-black hover:text-white cursor-pointer duration-200 ${
+          className={`h-20 w-20 border border-black rounded-full flex justify-center items-center font-bold hover:bg-black hover:dark:bg-white hover:text-white hover:dark:text-black cursor-pointer duration-200 ${
             theme === "light"
               ? "text-black bg-zinc-100" // Light mode styles
               : "text-white bg-zinc-900" // Dark mode styles
           }`}
         >
-          Hire Me
+         <a href="#contact"> Hire Me</a>
         </div>
         <svg
           className="absolute w-full h-full animate-spin-slow cursor-pointer pointer-events-none"
@@ -194,4 +194,4 @@ const Hero = ({ isImageRounded = false, isHover = true }) => {
   );
 };
 
-export default Hero;
+export default Home;

@@ -106,9 +106,9 @@ const Projects = () => {
 
   return (
     <>
-      <section id="projects" ref={ref}>
+      <section id="work" ref={ref} className="">
         <motion.div
-          className="min-h-screen w-full flex flex-col items-center text-black dark:text-white bg-teal-50 dark:bg-zinc-800"
+          className="min-h-screen w-full flex flex-col items-center text-black dark:text-white bg-teal-50 dark:bg-zinc-800 pt-10"
           variants={containerVariants}
           initial="hidden"
           animate={controls} // Controlled by useAnimation
