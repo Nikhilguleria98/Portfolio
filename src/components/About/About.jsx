@@ -7,7 +7,7 @@ import AcademicSection from "../Academic section/Academic";
 function About() {
   return (
     <>
-      <div id="about" className="min-h-screen w-full flex flex-col items-center justify-center px-6 py-12 text-white bg-gradient-to-b from-gray-900 to-black">
+      <div id="about" className="min-h-screen w-full flex flex-col items-center justify-center px-6 py-12 text-black dark:text-white bg-zinc-100 dark:bg-gradient-to-b from-gray-900 to-black">
         {/* Header */}
         <motion.h1
           className="text-[6vh] sm:text-[8vh] md:text-[4vw] text-center font-extrabold mt-10 text-teal-400"
@@ -28,10 +28,10 @@ function About() {
           {/* Biography */}
           <motion.div className="flex-1 max-w-xl text-center md:text-left md:pr-4">
             <h2 className="text-3xl font-semibold text-yellow-400">BIOGRAPHY</h2>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-black dark:text-white">
               Hi, I'm <span className="text-teal-400">Nikhil Guleria</span>, a passionate Front-End Developer with an eye for detail and a love for UI/UX design. I specialize in crafting interactive and accessible web applications using modern technologies like React.js and Next.js.
             </p>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 text-black dark:text-white">
               Over the years, I've worked on several impactful projects, including a **Blood Bank Management System** and a **Cloth Recycling Website**, which solidified my enthusiasm for tech-driven problem-solving.
             </p>
           </motion.div>
@@ -70,15 +70,15 @@ function About() {
 
         {/* Stats Section */}
         <motion.div className="flex flex-wrap justify-center gap-8 mt-12 w-full max-w-4xl">
-          <div className="text-center text-gray-300">
+          <div className="text-center text-black dark:text-white">
             <h3 className="text-3xl font-bold text-yellow-400">5+</h3>
             <p>Projects Completed</p>
           </div>
-          <div className="text-center text-gray-300">
+          <div className="text-center text-black dark:text-white">
             <h3 className="text-3xl font-bold text-yellow-400">100%</h3>
             <p>Learning Enthusiasm</p>
           </div>
-          <div className="text-center text-gray-300">
+          <div className="text-center text-black dark:text-white">
             <h3 className="text-3xl font-bold text-yellow-400">∞</h3>
             <p>Growth Potential</p>
           </div>
@@ -87,7 +87,7 @@ function About() {
         {/* Call to Action */}
         <motion.div className="mt-12 text-center">
           <h2 className="text-3xl font-semibold text-teal-400">Let's Work Together!</h2>
-          <p className="text-gray-300 mt-4">Looking to build something amazing? I'm available for freelance and full-time opportunities.</p>
+          <p className="text-black dark:text-white mt-4">Looking to build something amazing? I'm available for freelance and full-time opportunities.</p>
           <a href="#contact" className="mt-4 inline-block px-6 py-3 bg-yellow-400 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-500 transition-all duration-300">
             Contact Me
           </a>

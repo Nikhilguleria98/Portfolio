@@ -95,7 +95,7 @@ const Projects = () => {
   }, [controls, inView]);
 
   return (
-    <section id="work" ref={ref} className="py-16 bg-zinc-100 dark:bg-black">
+    <section id="work" ref={ref} className="py-16 text-black dark:text-white bg-zinc-100 dark:bg-gradient-to-b from-gray-900 to-black">
       <motion.div
         className="min-h-screen w-full flex flex-col items-center text-black dark:text-white px-6 sm:px-12"
         variants={containerVariants}
