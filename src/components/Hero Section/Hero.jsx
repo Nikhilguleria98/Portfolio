@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import Typewriter from "typewriter-effect";
 import "../../index.css";
 import { useTheme } from "../../ThemeContext";
 
-
 const Home = ({ isImageRounded = false, isHover = true }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { theme } = useTheme(); 
+  const { theme } = useTheme();
+
   const handleMouseMove = (e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
@@ -18,179 +20,100 @@ const Home = ({ isImageRounded = false, isHover = true }) => {
     setMousePosition({ x: 0, y: 0 });
   };
 
-  const containerVariant = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const itemVariant = {
-    hidden: { x: -50, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.6 } },
-  };
-
-  const rightSectionVariant = {
-    hidden: { x: 100, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 0.8 } },
-  };
-
   return (
-    <div
+    <section
       id="home"
-      className=" min-h-screen  flex flex-col md:flex-row items-center justify-center px-4 md:px-16 gap-5 relative pt-[6rem] md:pt-[2rem] overflow-hidden  text-black dark:text-white bg-teal-50 dark:bg-zinc-800"
-      style={{
-        // backgroundColor: "#060717",
-        marginTop: "-5rem", // Adjust this based on the Navbar height
-        // paddingTop: "4rem", // Match the height of the Navbar
-      }}
+      className="relative flex flex-col-reverse gap-8 md:gap-0 md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-24 text-black dark:text-white bg-zinc-100 dark:bg-black pb-10"
     >
-
-
-      {/*Left  Section */}
+      {/* Left Section */}
       <motion.div
-  className="md:w-1/2 flex justify-center items-center md:mt-20"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: false, amount: 0.2 }}
-  variants={rightSectionVariant}
->
-  <div
-    className={`relative w-full cursor-pointer ${
-      isHover ? " " : ""
-    } rounded-lg overflow-hidden max-w-[28rem] md:h-[28rem]`}
-    style={{
-      perspective: "1000px",
-      transition: "box-shadow 0.3s ease",
-    }}
-    onMouseMove={handleMouseMove}
-    onMouseLeave={handleMouseLeave}
-  >
-    <img
-      src="/developer.webp"
-      alt="Nikhil"
-      className={`w-full h-full object-cover ${
-        isImageRounded ? "rounded-full" : "rounded-lg"
-      }`}
-      style={{
-        transition: "transform 0.3s ease",
-        transform: `
-          rotateY(${mousePosition.x * 35}deg) 
-          rotateX(${-mousePosition.y * 35}deg) 
-          scale3d(${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1}, ${isHover ? 1.25 : 1})
-        `,
-        transformOrigin: "center center",
-      }}
-    />
-  </div>
-</motion.div>
-
-      {/* Right  Section */}
-      <motion.div
-        className="md:w-1/2 text-center md:text-left mb-6 md:mb-0 md:mt-8"
-        initial="hidden"
-        whileInView="visible"
+        className="md:w-1/2 text-center md:text-left"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: false, amount: 0.2 }}
-        variants={containerVariant}
       >
-        <motion.h1
-          className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold   inline-block "
-          variants={itemVariant}
-        >
-          Hello! I'm Nikhil
-        </motion.h1>
-        <motion.p
-          className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold "
-          variants={itemVariant}
-        >
-          Front End Developer
-        </motion.p>
-        <motion.p
-          className="text-[2.7vh] md:text-[2.5vh] leading-relaxed p-4 md:p-0"
-          variants={itemVariant}
-        >
-          "Hi, I'm Nikhil, a passionate Front-End Developer focused on creating
-          beautiful and user-friendly web experiences. I specialize in building
-          responsive, interactive websites that are both functional and
-          visually appealing."
-        </motion.p>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+          Hello! I'm <span className="text-yellow-400">Nikhil</span>
+        </h1>
+        <div className="text-xl sm:text-2xl md:text-3xl font-semibold mt-2 text-teal-300">
+          <Typewriter
+            options={{
+              strings: ["Frontend Developer", "UI/UX Enthusiast", "React & Next.js Expert"],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </div>
+        <p className="text-base sm:text-lg text-black dark:text-white mt-4 max-w-lg leading-relaxed">
+          I build elegant and responsive web applications using modern technologies like React.js, Next.js, Tailwind CSS, and more.
+        </p>
 
-        
-      <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
-  <button className="relative md:hidden block p-3 border-2 rounded-lg overflow-hidden group">
-    <a href="#contact" className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white">Hire me</a>
-    <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out "></span>
-  </button>
-  <button className="relative p-3 border-2 rounded-lg overflow-hidden group">
-    <a href="/Nikhil's Resume.pdf" download={"Nikhil's Resume.pdf"} className="relative z-10  group-hover:text-black transition duration-300 text-black dark:text-white  ">Download Resume</a>
-    <span className="absolute inset-0 bg-teal-400 scale-0 group-hover:scale-125 rounded-full transition-transform duration-500 ease-out"></span>
-  </button>
-</motion.div>
+        {/* Call-to-Action Buttons */}
+        <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
+          <a
+            href="#contact"
+            className="px-5 py-3 sm:px-6 sm:py-3 bg-yellow-400 text-black font-semibold rounded-full shadow-md hover:bg-yellow-500 transition-all duration-300"
+          >
+            Hire Me
+          </a>
+          <a
+            href="/Nikhil_Resume.pdf"
+            download
+            className="px-5 py-3 sm:px-6 sm:py-3 border-2 border-white rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+          >
+            Download Resume
+          </a>
+        </div>
 
-
-{/* <motion.div className="flex justify-center md:justify-start mt-5 gap-4" variants={itemVariant}>
-<StarBorder
-  as="button"
-  className="custom-class md:hidden block "
-  color="cyan"
-  speed="5s"
->
-  Hire me
-</StarBorder>
-<StarBorder
-  as="button"
-  className="custom-class "
-  color="cyan"
-  speed="5s" 
->
-  Download Resume
-</StarBorder>
-</motion.div> */}
-
+        {/* Social Media Icons */}
+        <div className="flex gap-4 sm:gap-6 mt-6 justify-center md:justify-start text-lg sm:text-xl">
+          <a href="https://linkedin.com" className="hover:text-yellow-400 transition-all duration-300">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com" className="hover:text-yellow-400 transition-all duration-300">
+            <FaGithub />
+          </a>
+          <a href="https://twitter.com" className="hover:text-yellow-400 transition-all duration-300">
+            <FaTwitter />
+          </a>
+          <a href="mailto:nikhil@example.com" className="hover:text-yellow-400 transition-all duration-300">
+            <FaEnvelope />
+          </a>
+        </div>
       </motion.div>
 
-
-
-      <div className="absolute bottom-8 right-8 md:fixed z-50">
-      <div className="h-36 w-36 hidden md:flex justify-center items-center rounded-full relative">
+      {/* Right Section (Image + Effects) */}
+      <motion.div
+        className="md:w-1/2 flex justify-center mt-12 md:mt-0"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
         <div
-          className={`h-20 w-20 border border-black rounded-full flex justify-center items-center font-bold hover:bg-black hover:dark:bg-white hover:text-white hover:dark:text-black cursor-pointer duration-200 ${
-            theme === "light"
-              ? "text-black bg-zinc-100" // Light mode styles
-              : "text-white bg-zinc-900" // Dark mode styles
+          className={`relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden rounded-full shadow-xl border-4 border-yellow-400 ${
+            isHover ? "hover:scale-110 transition-all duration-500" : ""
           }`}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
         >
-         <a href="#contact"> Hire Me</a>
+          <img
+            src="/developer.webp"
+            alt="Nikhil"
+            className="w-full h-full object-cover"
+            style={{
+              transition: "transform 0.3s ease",
+              transform: `
+                rotateY(${mousePosition.x * 15}deg) 
+                rotateX(${-mousePosition.y * 15}deg) 
+                scale(${isHover ? 1.1 : 1})
+              `,
+            }}
+          />
         </div>
-        <svg
-          className="absolute w-full h-full animate-spin-slow cursor-pointer pointer-events-none"
-          viewBox="0 0 150 150"
-        >
-          <defs>
-            <path
-              id="circlePath"
-              d="M 75, 75 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
-            />
-          </defs>
-          <text
-            fill={theme === "light" ? "black" : "white"} // Adjust text color based on theme
-            fontSize="26"
-            fontWeight="bold"
-          >
-            <textPath href="#circlePath" textAnchor="middle" startOffset="50%">
-              Web Developer
-            </textPath>
-          </text>
-        </svg>
-      </div>
-    </div>
-
-
-
-
-
-    </div>
+      </motion.div>
+    </section>
   );
 };
 

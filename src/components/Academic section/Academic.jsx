@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { FaGraduationCap, FaUniversity, FaBook } from "react-icons/fa";
+import { useTheme } from "../../ThemeContext";
 
 export default function AcademicSection() {
   const academicData = [
@@ -8,36 +10,41 @@ export default function AcademicSection() {
       institution: "Sri Sai University Palampur",
       board: "Sri Sai University Palampur",
       year: "Pursuing (4th Semester)",
-      marks: "8.37 (Tentative)"
+      marks: "8.37 (Tentative)",
+      icon: <FaGraduationCap size={35} className="text-teal-500" />
     },
     {
       class: "B.Sc",
       institution: "WRS Govt. College Dehri",
       board: "H.P.U",
       year: "2021",
-      marks: "7.17"
+      marks: "7.17",
+      icon: <FaUniversity size={35} className="text-teal-500" />
     },
     {
       class: "+2",
       institution: "Govt. Sen. Sec. School Matlahar",
       board: "H.P.B.S.E",
       year: "2018",
-      marks: "79.6%"
+      marks: "79.6%",
+      icon: <FaBook size={35} className="text-teal-500" />
     },
     {
       class: "10th",
       institution: "Govt. Sen. Sec. School Matlahar",
       board: "H.P.B.S.E",
       year: "2016",
-      marks: "82.4%"
+      marks: "82.4%",
+      icon: <FaBook size={35} className="text-teal-500" />
     }
   ];
 
   const [progress, setProgress] = useState(0);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      const section = document.getElementById('academic-section');
+      const section = document.getElementById("academic-section");
       if (section) {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -46,25 +53,26 @@ export default function AcademicSection() {
         setProgress(Math.min(Math.max(progressPercentage, 0), 100));
       }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <motion.div
       id="academic-section"
-      className="p-8 md:p-16 text-black dark:text-white bg-teal-50 dark:bg-zinc-900 relative"
+      className="p-8 md:p-16 text-black dark:text-white bg-zinc-100 dark:bg-gradient-to-b from-gray-900 to-black relative"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1 }}
     >
-      <h2 className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold mb-12 text-center tracking-wide uppercase border-b-2 border-gray-600 pb-4">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center mb-12 text-yellow-500">
         Academic Timeline
       </h2>
       <div className="relative flex flex-col items-center">
-        <div className="w-1 bg-gray-500 dark:bg-gray-400 absolute left-1/2 transform -translate-x-1/2 h-full rounded-lg overflow-hidden hidden lg:flex">
+        {/* Timeline Background */}
+        <div className="w-1 bg-gradient-to-b from-teal-300 via-teal-500 to-teal-700 absolute left-1/2 transform -translate-x-1/2 h-full rounded-lg overflow-hidden hidden lg:flex">
           <div
-            className="bg-teal-400 dark:bg-teal-400 w-full transition-all duration-500 ease-in-out"
+            className="bg-teal-500 dark:bg-teal-500 w-full transition-all duration-500 ease-in-out"
             style={{ height: `${progress}%` }}
           ></div>
         </div>
@@ -72,32 +80,31 @@ export default function AcademicSection() {
           {academicData.map((item, index) => (
             <motion.div
               key={index}
-              className={`flex ${
-                index % 2 === 0 ? 'lg:justify-start' : 'lg:justify-end'
-              } items-center relative`}
-              initial={{ opacity: 0, y: 50 }} // Slide from bottom
-              whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up when in view
-              viewport={{ once: false, amount: 0.5 }} // Repeats animation when in view
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className={`flex ${index % 2 === 0 ? "lg:justify-start" : "lg:justify-end"} items-center relative`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="text-black dark:text-white bg-teal-50 dark:bg-zinc-800 p-6 md:p-8 rounded-lg shadow-lg w-full lg:w-96 border-l-4 border-teal-500 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl md:text-2xl font-semibold mb-2 text-teal-400">
-                  {item.class}
-                </h3>
-                <p className="mb-1 text-sm">
+              <div className="bg-gradient-to-r from-teal-300 to-teal-600 dark:bg-gradient-to-r dark:from-teal-700 dark:to-teal-800 p-6 md:p-8 rounded-xl shadow-lg w-full lg:w-96 border-l-8 border-teal-400 hover:shadow-2xl transition-shadow  hover:scale-105 duration-500">
+                <div className="flex items-center gap-6 mb-4">
+                  {item.icon}
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">{item.class}</h3>
+                </div>
+                <p className="mb-1 text-sm text-white opacity-90">
                   <strong>Institution:</strong> {item.institution}
                 </p>
-                <p className="mb-1 text-sm">
+                <p className="mb-1 text-sm text-white opacity-90">
                   <strong>Board/University:</strong> {item.board}
                 </p>
-                <p className="mb-1 text-sm">
+                <p className="mb-1 text-sm text-white opacity-90">
                   <strong>Year:</strong> {item.year}
                 </p>
-                <p className="text-sm">
+                <p className="text-sm text-white opacity-90">
                   <strong>Marks/CGPA:</strong> {item.marks}
                 </p>
               </div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-teal-50 dark:bg-teal-600 rounded-full border-4 dark:border-zinc-900 border-gray-300 shadow-md hidden lg:flex"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-teal-500 to-teal-600 dark:bg-teal-700 rounded-full border-4 dark:border-zinc-900 border-gray-300 shadow-xl hidden lg:flex"></div>
             </motion.div>
           ))}
         </div>

@@ -48,7 +48,10 @@ function Navbar() {
                 <a href="#about">About</a>
               </li>
               <li className="hover:text-teal-500 duration-300 transition-colors">
-                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+              </li>
+              <li className="hover:text-teal-500 duration-300 transition-colors">
+                <a href="#work">Work</a>
               </li>
               <li className="hover:text-teal-500 duration-300 transition-colors">
                 <a href="#contact">Contact</a>
