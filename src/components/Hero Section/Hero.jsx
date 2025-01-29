@@ -23,7 +23,7 @@ const Home = ({ isImageRounded = false, isHover = true }) => {
   return (
     <section
       id="home"
-      className="relative flex flex-col-reverse gap-8 md:gap-0 md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-24 text-black dark:text-white bg-zinc-100 dark:bg-black pb-10"
+      className="relative flex flex-col-reverse gap-8 md:gap-0 md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-24 text-black dark:text-white bg-zinc-100 dark:bg-black pb-10 pt-12"
     >
       {/* Left Section */}
       <motion.div

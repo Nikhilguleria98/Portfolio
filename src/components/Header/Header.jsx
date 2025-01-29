@@ -28,15 +28,16 @@ function Navbar() {
 
   return (
     <>
-      <nav
-        className="sticky top-0 z-50 w-full "
-        style={{
-          backdropFilter: "blur(10px)", // Adds the glass effect
-          backgroundColor: "rgba(255, 255, 255, 0.2)", // Transparent glass background
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Soft shadow for depth
-          overflowX: "hidden", // Prevent horizontal scroll behind the navbar
-        }}
-      >
+<nav
+  className="fixed top-0 z-50 w-full"
+  style={{
+    backdropFilter: "blur(10px)", // Adds the glass effect
+    backgroundColor: "transparent", // Fully transparent background
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Soft shadow for depth
+    overflowX: "hidden", // Prevent horizontal scroll behind the navbar
+  }}
+>
+
         <div className="flex justify-between px-4 md:px-16 py-5 items-center  text-black dark:text-white ">
           <div>Nikhil Guleria</div>
           <div>
