@@ -9,8 +9,8 @@ export default function AcademicSection() {
       class: "M.C.A",
       institution: "Sri Sai University Palampur",
       board: "Sri Sai University Palampur",
-      year: "Pursuing (4th Semester)",
-      marks: "8.37 (Tentative)",
+      year: "2024",
+      marks: "8.40",
       icon: <FaGraduationCap size={35} className="text-teal-500" />
     },
     {
@@ -86,7 +86,10 @@ export default function AcademicSection() {
               viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="bg-gradient-to-r from-teal-300 to-teal-600 dark:bg-gradient-to-r dark:from-teal-700 dark:to-teal-800 p-6 md:p-8 rounded-xl shadow-lg w-full lg:w-96 border-l-8 border-teal-400 hover:shadow-2xl transition-shadow  hover:scale-105 duration-500">
+           <div className="bg-gradient-to-r from-teal-300 to-teal-600 dark:bg-gradient-to-r dark:from-teal-700 dark:to-teal-800 
+p-6 md:p-8 rounded-xl shadow-lg w-full lg:w-96 border-l-8 border-teal-400 
+hover:shadow-2xl transition-all transform hover:scale-105 duration-700 cursor-pointer ease-in-out">
+
                 <div className="flex items-center gap-6 mb-4">
                   {item.icon}
                   <h3 className="text-xl md:text-2xl font-semibold text-white">{item.class}</h3>

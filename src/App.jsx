@@ -8,6 +8,7 @@ import Contact from "./components/Contact/Contact";
 import ContactForm from "./components/Contact/Contact";
 import { ThemeProvider } from "./ThemeContext";
 import Skills from "./components/Skill/Skill";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
     <Projects />
 
     <ContactForm />
+    <Footer />
  </ThemeProvider>
   );
 };

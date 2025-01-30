@@ -60,7 +60,7 @@ const Home = ({ isImageRounded = false, isHover = true }) => {
           <a
             href="/Nikhil's Resume.pdf"
             download={"Nikhil_Resume.pdf"}
-            className="px-5 py-3 sm:px-6 sm:py-3 border-2 border-white rounded-full font-semibold hover:bg-white hover:text-black transition-all duration-300"
+            className="px-5 py-3 sm:px-6 sm:py-3 dark:border-2 dark:border-white border-2 border-gray-300  rounded-full font-semibold hover:bg-yellow-500 duration-300 hover:text-black transition-all "
           >
             Download Resume
           </a>
@@ -68,16 +68,16 @@ const Home = ({ isImageRounded = false, isHover = true }) => {
 
         {/* Social Media Icons */}
         <div className="flex gap-4 sm:gap-6 mt-6 justify-center md:justify-start text-lg sm:text-xl">
-          <a href="https://linkedin.com" className="hover:text-yellow-400 transition-all duration-300">
+          <a href="https://www.linkedin.com/in/nikhil-guleria/" target="_main" className="hover:text-yellow-400 transition-all duration-300">
             <FaLinkedin />
           </a>
-          <a href="https://github.com" className="hover:text-yellow-400 transition-all duration-300">
+          <a href="https://github.com/Nikhilguleria98" target="_main" className="hover:text-yellow-400 transition-all duration-300">
             <FaGithub />
           </a>
-          <a href="https://twitter.com" className="hover:text-yellow-400 transition-all duration-300">
+          {/* <a href="https://twitter.com" className="hover:text-yellow-400 transition-all duration-300">
             <FaTwitter />
-          </a>
-          <a href="mailto:nikhil@example.com" className="hover:text-yellow-400 transition-all duration-300">
+          </a> */}
+          <a href="mailto:nikhil@example.com" target="_main" className="hover:text-yellow-400 transition-all duration-300">
             <FaEnvelope />
           </a>
         </div>

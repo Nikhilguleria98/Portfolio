@@ -109,7 +109,7 @@ const Contact = () => {
   return (
  <section id="contact">
      <motion.div
-      className="min-h-screen  flex flex-col md:flex-row items-center justify-center pt-20 text-black dark:text-white bg-zinc-100 dark:bg-zinc-900"
+      className="min-h-screen  flex flex-col md:flex-row items-center justify-center pt-20 text-black dark:text-white bg-zinc-100 dark:bg-gradient-to-b from-gray-900 to-black"
       ref={ref}
       variants={parentVariants}
       initial="hidden"
@@ -119,7 +119,7 @@ const Contact = () => {
    
           <motion.div className='w-full md:w-1/2 flex flex-col items-center ' variants={parentVariants}>
         <motion.div className='flex flex-col gap-3'>
-          <motion.h1 variants={childVariants} className='text-[8vh] md:text-[5vw] font-bold'>Let's Work <br /> <span  variants={childVariants} className='text-teal-400'>Together</span></motion.h1>
+          <motion.h1 variants={childVariants} className='text-[8vh] md:text-[5vw] font-bold'>Let's Work <br /> <span  variants={childVariants} className='text-yellow-500'>Together</span></motion.h1>
           <motion.div className='flex flex-col justify-center '    variants={childVariants}>
             <motion.div className='flex items-center gap-2'>
               <SiGmail className='text-red-600'/>
@@ -200,7 +200,7 @@ const Contact = () => {
 
           <motion.button
             type="submit"
-            className="w-full bg-teal-400 text-white py-2 px-4 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:bg-teal-400 focus:ring-offset-2"
+            className="w-full bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:bg-teal-400 focus:ring-offset-2"
             variants={childVariants}
           >
             Submit

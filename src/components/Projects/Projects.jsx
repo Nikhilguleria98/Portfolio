@@ -13,6 +13,8 @@ const Projects = () => {
       description:
         "A sleek and modern website designed for a digital agency, built with NextJs and TailwindCSS.",
       tags: ["NextJs", "Tailwind CSS", "EmailJs"],
+      link: "foodwebsite-zeta.vercel.app",
+      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
     },
     {
       id: 2,
@@ -31,6 +33,8 @@ const Projects = () => {
       description:
         "An elegant and professional website for a hotel, emphasizing comfort and luxurious experiences for travelers.",
       tags: ["ReactJs", "Tailwind CSS", "In progress"],
+      link: "foodwebsite-zeta.vercel.app",
+      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
     },
     {
       id: 4,
@@ -39,6 +43,8 @@ const Projects = () => {
       description:
         "An interactive website to explore information about different countries, offering detailed insights and a sleek UI.",
       tags: ["Axios", "Tailwind CSS", "ReactJs"],
+      link: "foodwebsite-zeta.vercel.app",
+      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
     },
   ];
 
@@ -108,7 +114,7 @@ const Projects = () => {
     <>
       <section id="work" ref={ref}>
         <motion.div
-          className="min-h-screen w-full flex flex-col items-center text-black dark:text-white bg-teal-50 dark:bg-zinc-800 pt-10"
+          className="min-h-screen w-full flex flex-col items-center text-black dark:text-white bg-zinc-100 dark:bg-gradient-to-b from-gray-900 to-black pt-10"
           variants={containerVariants}
           initial="hidden"
           animate={controls} // Controlled by useAnimation
@@ -120,17 +126,17 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <h1 className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold">
+            <h1 className="text-[6vh] sm:text-[8vh] md:text-[4vw] font-bold text-yellow-500">
               Our Creative Projects
             </h1>
           </motion.div>
 
           {/* Project Cards */}
-          <motion.div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6 px-[6vw] sm:px-4 mt-10 py-10">
+          <motion.div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-6 px-[6vw] sm:px-4  py-10">
             {data.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="max-w-[350px] relative rounded-lg shadow-lg p-6 bg-zinc-200 dark:bg-zinc-700 hover:cursor-pointer"
+                className="max-w-[350px] relative rounded-lg shadow-lg p-6 bg-zinc-200 dark:bg-zinc-900 hover:cursor-pointer"
                 variants={cardVariants} // Each card animation
                 custom={index} // Customize delay for each card
               >
@@ -154,7 +160,7 @@ const Projects = () => {
                           href={`https://${project.link}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white bg-zinc-800 p-3 rounded-full hover:bg-zinc-600 transition-transform transform hover:scale-110 duration-300 hover:-translate-y-2"
+                          className="text-white bg-zinc-800 p-3 rounded-full hover:bg-yellow-500 transition-transform transform hover:scale-110 duration-300 hover:-translate-y-2"
                         >
                           <IoEyeSharp className="text-xl" />
                         </a>
@@ -164,7 +170,7 @@ const Projects = () => {
                           href={project.gitLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white bg-zinc-800 p-3 rounded-full hover:bg-zinc-600 transition-transform transform hover:scale-110 duration-300 hover:-translate-y-2"
+                          className="text-white bg-zinc-800 p-3 rounded-full hover:bg-yellow-500 transition-transform transform hover:scale-110 duration-300 hover:-translate-y-2"
                         >
                           <FaGithub className="text-xl" />
                         </a>
@@ -192,7 +198,7 @@ const Projects = () => {
                   {project.tags.map((tag, i) => (
                     <motion.span
                       key={i}
-                      className="text-xs bg-teal-400 text-gray-700 py-1 px-2 rounded-lg"
+                      className="text-xs bg-yellow-500 text-black py-1 px-2 rounded-lg"
                       variants={tagVariants}
                       whileHover={{ scale: 1.15 }}
                       transition={{ duration: 0.3 }}
