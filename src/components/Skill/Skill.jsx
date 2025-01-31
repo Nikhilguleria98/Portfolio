@@ -5,6 +5,8 @@ import { RiNextjsFill } from "react-icons/ri";
 import { TbBrandRedux } from "react-icons/tb";
 import { SiTailwindcss, SiGraphql, SiTypescript, SiDocker, SiFirebase } from "react-icons/si";
 import { motion } from "framer-motion";
+import { DiMongodb } from "react-icons/di";
+
 
 const Skills = () => {
   const skills = [
@@ -19,6 +21,7 @@ const Skills = () => {
     { name: "React Router DOM", icon: <FaReact size={50} />, color: "bg-gradient-to-r from-purple-500 to-purple-900", hover: "hover:shadow-purple-900", level: "Intermediate" },
     { name: "React Redux", icon: <TbBrandRedux size={50} />, color: "bg-gradient-to-r from-pink-500 to-pink-900", hover: "hover:shadow-pink-900", level: "Intermediate" },
     { name: "Context API", icon: <FaReact size={50} />, color: "bg-gradient-to-r from-indigo-500 to-indigo-900", hover: "hover:shadow-indigo-900", level: "Intermediate" },
+    { name: "MongoDB", icon: <DiMongodb size={50} />, color: "bg-gradient-to-r from-green-700 to-green-900", hover: "hover:shadow-green-900", level: "Beginner" },
 
   ];
 
