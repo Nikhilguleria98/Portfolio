@@ -1,134 +1,92 @@
+import { useState } from "react";
+import { FaFacebookF, FaInstagram, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
+export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-import React from "react";
-import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+  const handleSubscribe = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setMessage("❌ Please enter a valid email address.");
+      return;
+    }
+    setTimeout(() => {
+      setMessage("✅ Thank you for subscribing! You'll receive updates soon.");
+      setEmail("");
+    }, 1000);
+  };
 
-
-const Footer = () => {
   return (
-    <div className="bg-orange-600 overflow-hidden flex flex-col items-center justify-center">
-      <div className="	bg-[#FFF5EE] w-[120vw] -mt-[30vw] h-[40vw] md:-mt-[15vw] md:h-[20vw] rounded-b-[100%]"></div>
+    <footer className="bg-black text-white py-10 px-6 md:px-12 lg:px-20 border-t-2 border-gray-800">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {/* Profile Section */}
+        <div>
+          <h3 className="text-xl font-bold text-yellow-400">Nikhil Guleria</h3>
+          <a href="#contact">
+            <button className="p-3 bg-gray-800 rounded-lg mt-5 hover:bg-yellow-500 hover:text-black transition-transform transform hover:translate-x-2 duration-500">
+              Let's Connect
+            </button>
+          </a>
+        </div>
 
-      <div className="w-full h-full pt-[10vw] md:pt-[4vw] md:py-[1vw] flex flex-col md:flex-row px-[10vw] gap-[5vw]">
-        {/* Socail Links */}
-        <div className="w-full h-full flex justify-center md:justify-start items-center">
-          <div className="flex flex-col gap-2">
-            <div className="w-[191px] hover:cursor-pointer">
-              <Link href="/">
-              <div>
-            <p className="text-2xl text-white font-extrabold">QuickBite</p>
-          </div>
-              </Link>
-            </div>
-
-            <div className="flex w-full gap-4 justify-start item-start">
-              <div>
-                <Link
-                  to=""
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text- transition hover:opacity-75"
-                >
-                  <div className="w-7 h-7 overflow-hidden">
-                  <Facebook  className="w-full h-full object-cover text-white"/>
-                  </div>
-                </Link>
-              </div>
-
-              <div>
-                <Link
-                  to=""
-                  rel="noreferrer"
-                  target="_blank"
-                  className="text-gray-700 transition hover:opacity-75"
-                >
-                  <div className="w-7 h-7 overflow-hidden">
-                  <Instagram className="w-full h-full object-cover text-white" />
-                  </div>
-                </Link>
-              </div>
-
-              <div>
-                <Link
-                  to=""
-                  rel="noreferrer"
-                  target="_blank"
-                  className=" transition hover:opacity-75"
-                >
-                  <div className="w-7 h-7 overflow-hidden">
-                  <Linkedin className="w-full h-full object-cover text-white" />
-                  </div>
-                </Link>
-              </div>
-
-           
-            </div>
+        {/* Social Profiles */}
+        <div>
+          <h3 className="text-lg font-bold text-yellow-400">Profiles</h3>
+          <div className="mt-4 space-y-3">
+            <a href="https://github.com/Nikhilguleria98" target="_blank" className="flex items-center gap-3 hover:translate-x-2 transition-transform duration-500">
+              <FaGithub className="text-xl" /> Github
+            </a>
+            <a href="https://www.linkedin.com/in/nikhil-guleria/" target="_blank" className="flex items-center gap-3 hover:translate-x-2 transition-transform duration-500">
+              <FaLinkedin className="text-xl" /> Linkedin
+            </a>
+            <a href="https://www.instagram.com/nikhil_batiyal_98" target="_blank" className="flex items-center gap-3 hover:translate-x-2 transition-transform duration-500">
+              <FaInstagram className="text-xl" /> Instagram
+            </a>
           </div>
         </div>
 
-        {/* Website Links */}
-        <div className="w-full h-full items-start text-white flex flex-col gap-5">
-          <div>
-            <h1 className="text-2xl font-semibold">Menu</h1>
-          </div>
-          <div className="w-full flex justify-start gap-20">
-            <div className="flex flex-col gap-4">
-              <Link to="/">Home</Link>
-              <Link to="/about">About Us</Link>
-              <Link to="/menu">Menu</Link>
-            </div>
-       
-          </div>
+        {/* Contact Details */}
+        <div>
+          <h3 className="text-lg font-bold text-yellow-400">Contact Me</h3>
+          <ul className="mt-4 space-y-3">
+            <a href="tel:+917807569493" className="flex items-center gap-3 hover:translate-x-2 transition-transform duration-500">
+              <FaPhoneAlt /> +91 7807569493
+            </a>
+            <a href="mailto:nikhilbatiyal3891@gmail.com" className="flex items-center gap-3 hover:translate-x-2 transition-transform duration-500">
+              <SiGmail /> nikhilbatiyal3891@gmail.com
+            </a>
+          </ul>
         </div>
 
-        {/* Contact */}
-        <div className="w-full h-full items-start text-white flex flex-col gap-5">
-          <div>
-            <h1 className="text-2xl font-semibold">Contact</h1>
+        {/* Subscription */}
+        <div className="w-full max-w-md">
+          <h3 className="text-lg font-bold text-yellow-400">Stay Connected</h3>
+          <p className="text-gray-300 mt-2">Subscribe to get updates on my latest projects, blogs, and collaborations.</p>
+          <div className="flex mt-4 w-full">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="px-4 py-2 w-full border-none rounded-l-lg text-black"
+            />
+            <button
+              onClick={handleSubscribe}
+              className="bg-yellow-400 text-black font-bold rounded-r-lg px-4"
+            >
+              Subscribe
+            </button>
           </div>
-          <div className="flex text-white flex-col items-start gap-4">
-            <Link href="tel:+91-8264470355">
-              <div className="flex gap-4 items-center justify-center">
-                <div className="w-5 h-5 overflow-hidden ">
-                  <Phone className="w-full h-full object-cover" />
-                </div>
-                <p>+91-9876543210</p>
-              </div>
-            </Link>
-
-            <Link href="mailto:Kreativan@gmail.com">
-              <div className="flex gap-4 items-center justify-center">
-                <div className="w-5 h-5 overflow-hidden">
-                  <Mail className="w-full h-full object-cover" />
-                </div>
-                <p>nikhil@gmail.com</p>
-              </div>
-            </Link>
-
-            <Link to="https://www.google.com/maps/place/IT+Park+Chandigarh/@30.7269801,76.84161,17z/data=!3m1!4b1!4m6!3m5!1s0x390f9333773d5863:0xf32395e75d7dffc0!8m2!3d30.7269755!4d76.8441849!16s%2Fg%2F11jy5fy7kc?entry=ttu&g_ep=EgoyMDI1MDEwMS4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D">
-              <div className="w-full h-full flex justify-center gap-4">
-                <div className="w-6 h-5 overflow-hidden">
-                  <MapPin className="w-full h-full object-cover" />
-                </div>
-                <p className="w-full h-full text-wrap hover:cursor-pointer">
-                 Chandigarh , India
-                </p>
-              </div>
-            </Link>
-          </div>
+          {message && <p className="mt-3 text-sm font-semibold text-white">{message}</p>}
+          <div className="mt-4 text-sm text-gray-400">No spam, just occasional updates. Unsubscribe anytime.</div>
         </div>
       </div>
 
-      {/* CopyWrite */}
-      <div className="w-full h-full flex flex-col items-center justify-center py-[5vw] md:py-[2vw]">
-        <hr className="w-[80vw] h-2 text-[#A4A1A1]" />
-        <p className="text-[#A4A1A1] text-[3vw] md:text-[0.8vw]">
-          Copyright @ 2024 Company | All Rights Reserved
-        </p>
+      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-400 text-sm">
+        © 2025 Nikhil Guleria. All rights reserved.
       </div>
-    </div>
+    </footer>
   );
-};
-
-export default Footer;
+}

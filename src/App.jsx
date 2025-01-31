@@ -9,6 +9,7 @@ import ContactForm from "./components/Contact/Contact";
 import { ThemeProvider } from "./ThemeContext";
 import Skills from "./components/Skill/Skill";
 import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
