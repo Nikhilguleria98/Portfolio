@@ -76,10 +76,10 @@ function Navbar() {
               onClick={toggleMenu}
               aria-label="Toggle menu"
               initial={{ rotate: 0 }}
-              animate={{ rotate: isMenuOpen ? 135 : 0 }}
+              animate={{ rotate: isMenuOpen ? 95 : 0 }}
               transition={{ duration: 0.4 }}
             >
-              {isMenuOpen ? <HiXMark className="text-xl font-bold" /> : <FaBarsStaggered />}
+              {isMenuOpen ? <HiXMark className="text-2xl font-extrabold" /> : <FaBarsStaggered />}
             </motion.button>
           </div>
         </div>

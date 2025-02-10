@@ -13,8 +13,8 @@ const Projects = () => {
       description:
         "A sleek and modern website designed for a digital agency, built with NextJs and TailwindCSS.",
       tags: ["NextJs", "Tailwind CSS", "EmailJs"],
-      link: "foodwebsite-zeta.vercel.app",
-      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
+      link: "kreativantech.com/",
+      gitLink: "https://github.com/KreativanTechnologies/Kt_web_next",
     },
     {
       id: 2,
@@ -33,8 +33,8 @@ const Projects = () => {
       description:
         "An elegant and professional website for a hotel, emphasizing comfort and luxurious experiences for travelers.",
       tags: ["ReactJs", "Tailwind CSS", "In progress"],
-      link: "foodwebsite-zeta.vercel.app",
-      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
+      link: "hotel-website-orpin-seven.vercel.app",
+      gitLink: "https://github.com/Nikhilguleria98/Hotel-Website",
     },
     {
       id: 4,
@@ -43,8 +43,8 @@ const Projects = () => {
       description:
         "An interactive website to explore information about different countries, offering detailed insights and a sleek UI.",
       tags: ["Axios", "Tailwind CSS", "ReactJs"],
-      link: "foodwebsite-zeta.vercel.app",
-      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
+      link: "country-api-alpha-ten.vercel.app",
+      gitLink: "https://github.com/Nikhilguleria98/CountryAPI",
     },
   ];
 
