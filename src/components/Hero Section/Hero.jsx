@@ -59,7 +59,7 @@ const Home = ({ isImageRounded = false, isHover = true }) => {
           </a>
           <a
             href="/Nikhil's Resume.pdf"
-            download={"Nikhil_Resume.pdf"}
+            download={"Nikhil Gukeria's Resume.pdf"}
             className="px-5 py-3 sm:px-6 sm:py-3 dark:border-2 dark:border-white border-2 border-gray-300  rounded-full font-semibold hover:bg-yellow-500 duration-300 hover:text-black transition-all "
           >
             Download Resume
