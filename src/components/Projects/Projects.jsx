@@ -5,48 +5,70 @@ import { FaGithub } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
 
 const Projects = () => {
-  const data = [
-    {
-      id: 1,
-      name: "Kreativan Technologies",
-      img: "./kreativan.png",
-      description:
-        "A sleek and modern website designed for a digital agency, built with NextJs and TailwindCSS.",
-      tags: ["NextJs", "Tailwind CSS", "EmailJs"],
-      link: "kreativantech.com/",
-      gitLink: "https://github.com/KreativanTechnologies/Kt_web_next",
-    },
-    {
-      id: 2,
-      name: "Food Website",
-      img: "./foodweb.png",
-      description:
-        "A visually engaging website designed for a food delivery service, highlighting fast delivery and delicious meals.",
-      link: "foodwebsite-zeta.vercel.app",
-      gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
-      tags: ["ReactJs", "Context API", "Tailwind CSS", "EmailJs", "framer-motion"],
-    },
-    {
-      id: 3,
-      name: "Hotel Website",
-      img: "/hotel.png",
-      description:
-        "An elegant and professional website for a hotel, emphasizing comfort and luxurious experiences for travelers.",
-      tags: ["ReactJs", "Tailwind CSS", "In progress"],
-      link: "hotel-website-orpin-seven.vercel.app",
-      gitLink: "https://github.com/Nikhilguleria98/Hotel-Website",
-    },
-    {
-      id: 4,
-      name: "Country API website",
-      img: "./country.png",
-      description:
-        "An interactive website to explore information about different countries, offering detailed insights and a sleek UI.",
-      tags: ["Axios", "Tailwind CSS", "ReactJs"],
-      link: "country-api-alpha-ten.vercel.app",
-      gitLink: "https://github.com/Nikhilguleria98/CountryAPI",
-    },
-  ];
+ const data = [
+  {
+    id: 1,
+    name: "Armations Electric",
+    img: "./Armations.png",
+    description:
+      "A professional and responsive site built for an electrical service provider, focusing on clean design, service highlights, and contact functionality.",
+    tags: ["NextJs", "Tailwind CSS", "EmailJs"],
+    link: "armations.vercel.app/",
+    gitLink: "https://github.com/KreativanTechnologies/Armations",
+  },
+{
+  id: 2,
+  name: "Himalayan Khadu",
+  img: "./himalayan khadu.png",
+  description:
+    "A travel booking website tailored for the Himalayan region, offering curated experiences, homestays, and adventure packages with a seamless and scenic interface.",
+  tags: ["NextJs", "Tailwind CSS", "EmailJs"],
+  link: "himalayan-khadu.vercel.app",
+  gitLink: "https://github.com/KreativanTechnologies/HimalayanKhadu",
+},
+
+  {
+    id: 4,
+    name: "Kreativan Technologies",
+    img: "./kreativan.png",
+    description:
+      "An agency website showcasing IT services, client success stories, and portfolio, developed using a modern tech stack for a seamless user journey.",
+    tags: ["NextJs", "Tailwind CSS", "EmailJs"],
+    link: "kreativantech.com/",
+    gitLink: "https://github.com/KreativanTechnologies/Kt_web_next",
+  },
+  {
+    id: 5,
+    name: "Food Website",
+    img: "./foodweb.png",
+    description:
+      "An interactive food ordering interface built with vibrant visuals, motion effects, and category filtering to enhance the user’s appetite and UX.",
+    link: "foodwebsite-zeta.vercel.app",
+    gitLink: "https://github.com/Nikhilguleria98/Foodwebsite",
+    tags: ["ReactJs", "Context API", "Tailwind CSS", "EmailJs", "framer-motion"],
+  },
+  {
+    id: 6,
+    name: "Hotel Website",
+    img: "/hotel.png",
+    description:
+      "A premium hotel booking platform with a minimal yet luxurious look, integrating room listings, testimonials, and booking features in progress.",
+    tags: ["ReactJs", "Tailwind CSS", "In progress"],
+    link: "hotel-website-orpin-seven.vercel.app",
+    gitLink: "https://github.com/Nikhilguleria98/Hotel-Website",
+  },
+  {
+    id: 7,
+    name: "Country API Website",
+    img: "./country.png",
+    description:
+      "A country explorer app using live API data to display key facts, flags, and demographics with an elegant UI and efficient search experience.",
+    tags: ["Axios", "Tailwind CSS", "ReactJs"],
+    link: "country-api-alpha-ten.vercel.app",
+    gitLink: "https://github.com/Nikhilguleria98/CountryAPI",
+  },
+];
+
 
   // Animation Variants
   const containerVariants = {
