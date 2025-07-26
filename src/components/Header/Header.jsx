@@ -3,6 +3,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { HiXMark } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../ThemeContext";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,9 +43,9 @@ function Navbar() {
         }}
       >
         <div className="flex justify-between px-4 md:px-16 py-5 items-center text-black dark:text-white">
-          <div className="font-sans font-bold text-xl cursor-pointer hover:text-yellow-500 duration-500">
+          <a href="/" className="font-sans font-bold text-xl cursor-pointer hover:text-yellow-500 duration-500">
             Nikhil Guleria
-          </div>
+          </a>
           <div>
             <ul className="hidden md:flex gap-10 font-semibold">
               {["Home", "About", "Skills", "Work", "Contact"].map((item, index) => (
