@@ -23,7 +23,7 @@ const Projects = () => {
   description:
     "A travel booking website tailored for the Himalayan region, offering curated experiences, homestays, and adventure packages with a seamless and scenic interface.",
   tags: ["NextJs", "Tailwind CSS", "EmailJs"],
-  link: "himalayan-khadu.vercel.app",
+  link: "https://himalyankhadu.com/",
   gitLink: "https://github.com/KreativanTechnologies/HimalayanKhadu",
 },
 
