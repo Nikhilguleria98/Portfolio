@@ -8,6 +8,16 @@ const Projects = () => {
  const data = [
   {
     id: 1,
+    name: "JSB",
+    img: "./jsb.png",
+    description:
+      "A modern, professional, and fully responsive website built for JSB, showcasing its diverse business verticals including logistics, farming, and enterprise solutions. The site focuses on a clean layout, clear service categorization, and seamless navigation to highlight JSB’s multi-industry expertise.",
+    tags: ["ReactJs", "Tailwind CSS"],
+    link: "/jsb-three.vercel.app/",
+    gitLink: "https://github.com/Nikhilguleria98/JSB",
+  },
+  {
+    id: 1,
     name: "Armations Electric",
     img: "./Armations.png",
     description:
