@@ -29,10 +29,11 @@ function About() {
           <motion.div className="flex-1 max-w-xl text-center md:text-left md:pr-4">
             <h2 className="text-3xl font-semibold text-yellow-400">BIOGRAPHY</h2>
             <p className="mt-4 text-black dark:text-white">
-              Hi, I'm <span className="text-teal-400">Nikhil Guleria</span>, a passionate Front-End Developer with an eye for detail and a love for UI/UX design. I specialize in crafting interactive and accessible web applications using modern technologies like React.js and Next.js.
-            </p>
-            <p className="mt-4 text-black dark:text-white">
-              Over the years, I've worked on several impactful projects, including a **Blood Bank Management System** and a **Cloth Recycling Website**, which solidified my enthusiasm for tech-driven problem-solving.
+           Hi, I’m Nikhil Guleria, a passionate Front-End Developer dedicated to crafting visually engaging, user-centric, and high-performance web applications. With expertise in React.js, Next.js, and Tailwind CSS, I focus on building seamless digital experiences that blend clean UI design with modern development practices.
+
+I have contributed to a variety of real-world projects, from corporate websites to booking platforms and dynamic web applications. Some of my key works include JSB, a multi-industry business portal; Himalayan Khadu, a travel and adventure booking website; and Armations Electric, a professional service website with integrated contact workflows. I’ve also built interactive platforms like food ordering systems, hotel booking interfaces, and API-powered applications.
+
+Driven by a strong problem-solving mindset and attention to detail, I continue to explore new tools, optimize user journeys, and deliver scalable solutions tailored to modern business needs.
             </p>
           </motion.div>
 
@@ -44,7 +45,7 @@ function About() {
             transition={{ duration: 0.8 }}
           >
             <div className="w-64 h-64 rounded-xl overflow-hidden border-4 border-teal-400 shadow-lg">
-              <img src="Image.jpeg" alt="Profile" className="w-full h-full object-cover" />
+              <img src="developer.webp" alt="Profile" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </motion.div>

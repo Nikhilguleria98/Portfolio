@@ -67,16 +67,16 @@ const Projects = () => {
     link: "hotel-website-orpin-seven.vercel.app",
     gitLink: "https://github.com/Nikhilguleria98/Hotel-Website",
   },
-  {
-    id: 7,
-    name: "Country API Website",
-    img: "./country.png",
-    description:
-      "A country explorer app using live API data to display key facts, flags, and demographics with an elegant UI and efficient search experience.",
-    tags: ["Axios", "Tailwind CSS", "ReactJs"],
-    link: "country-api-alpha-ten.vercel.app",
-    gitLink: "https://github.com/Nikhilguleria98/CountryAPI",
-  },
+  // {
+  //   id: 7,
+  //   name: "Country API Website",
+  //   img: "./country.png",
+  //   description:
+  //     "A country explorer app using live API data to display key facts, flags, and demographics with an elegant UI and efficient search experience.",
+  //   tags: ["Axios", "Tailwind CSS", "ReactJs"],
+  //   link: "country-api-alpha-ten.vercel.app",
+  //   gitLink: "https://github.com/Nikhilguleria98/CountryAPI",
+  // },
 ];
 
 
